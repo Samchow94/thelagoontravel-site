@@ -4,7 +4,7 @@
 
 backend:
   name: github
-  repo: Samchow94/thelagoontravel
+  repo: Samchow94/thelagoontravel-site
   branch: main
 
 # Test en local : lancer « npx decap-server@3.11.5 » à la racine du projet.

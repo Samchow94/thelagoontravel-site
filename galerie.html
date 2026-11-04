@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Filet de sécurité de l'affichage : les blocs .fade-* ne sont cachés que si le JS tourne (html.js).
+       Si main.js n'a pas démarré au bout de 1,5 s, on révèle les blocs proches de l'écran (et au défilement). -->
+  <script>
+    document.documentElement.classList.add('js');
+    (function () {
+      var sel = '.fade-up,.fade-in,.fade-left,.fade-right';
+      function reveal() {
+        if (window.__fadeReady) return true;
+        document.querySelectorAll(sel).forEach(function (e) {
+          if (e.getBoundingClientRect().top < innerHeight + 200) e.classList.add('visible');
+        });
+        return false;
+      }
+      setTimeout(function () {
+        if (!reveal()) addEventListener('scroll', reveal, { passive: true });
+      }, 1500);
+    })();
+  </script>
+  <title>Galerie — The Lagoon Travel</title>
+  <meta name="description" content="Découvrez les plus beaux paysages de l'île Maurice en images. Galerie photos The Lagoon Travel.">
+  <link rel="canonical" href="https://thelagoontravel.com/galerie.html">
+
+  <link rel="stylesheet" href="assets/css/tabler-subset.css?v=1">
+  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/css/glightbox.min.css" integrity="sha384-GPAzSuZc0kFvdIev6wm9zg8gnafE8tLso7rsAYQfc9hAdWCpOcpcNI5W9lWkYcsd" crossorigin="anonymous">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/css/glightbox.min.css" integrity="sha384-GPAzSuZc0kFvdIev6wm9zg8gnafE8tLso7rsAYQfc9hAdWCpOcpcNI5W9lWkYcsd" crossorigin="anonymous"></noscript>
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
+  <link rel="stylesheet" href="assets/css/components.css?v=3">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-lang-compact">
+      <button class="lang-btn lang-btn-compact active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+      <span>|</span>
+      <button class="lang-btn lang-btn-compact" data-lang="en" onclick="switchLang('en')">EN</button>
+    </div>
+    <a href="index.html" class="nav-logo">
+      <div class="logo-wrap">
+        <img src="assets/images/Logo_The_lagoon.png" alt="The Lagoon Travel" class="logo-img" fetchpriority="high">
+      </div>
+    </a>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      </div>
+      <a href="devis.html" class="btn btn-primary btn-primary-nav btn-sm" data-i18n="nav.cta">Préparez votre voyage</a>
+    </div>
+  </div>
+  <div class="nav-overlay" id="navOverlay">
+    <div class="nav-overlay-inner">
+      <button class="menu-close" aria-label="Fermer le menu">
+        <i class="ti ti-x"></i>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+        <li>
+          <button class="nav-menu-btn" type="button" aria-expanded="false">
+            <span data-i18n="nav.concept">Le Concept</span> <i class="ti ti-chevron-down nav-chevron" aria-hidden="true"></i>
+          </button>
+          <ul class="nav-submenu">
+            <li><a href="concept.html" data-i18n="nav.concept_sub">Concept</a></li>
+            <li><a href="prestations.html" data-i18n="nav.prestations">Nos prestations</a></li>
+          </ul>
+        </li>
+        <li><a href="realisations.html" data-i18n="nav.realisations">Nos Réalisations</a></li>
+        <li><a href="about.html" data-i18n="nav.about">À propos de nous</a></li>
+        <li><a href="galerie.html" data-i18n="nav.gallery">Galerie</a></li>
+        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      </ul>
+
+      <div class="nav-overlay-langs lang-switcher" role="group" aria-label="Langue">
+        <button class="lang-btn active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <video class="page-hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/galerie-hero-poster.jpg">
+    <source src="assets/videos/galerie-hero.mp4" type="video/mp4">
+  </video>
+  <div class="page-hero-content">
+    <span class="page-hero-eyebrow" data-i18n="gallery.eyebrow">L'île en images</span>
+    <h1 class="page-hero-title fade-up" data-i18n="gallery.title">Galerie</h1>
+    <p class="page-hero-subtitle fade-up" data-i18n="gallery.subtitle">Un aperçu des merveilles qui vous attendent à l'île Maurice.</p>
+  </div>
+
+  <!-- Vagues animées -->
+  <div class="galerie-hero-waves" aria-hidden="true">
+    <svg class="wave wave-back" viewBox="0 0 2880 80" preserveAspectRatio="none" fill="#FFFFFF">
+      <path d="M0 44 Q180 12 360 44 T720 44 T1080 44 T1440 44 T1800 44 T2160 44 T2520 44 T2880 44 V80 H0 Z"/>
+    </svg>
+    <svg class="wave wave-front" viewBox="0 0 2880 80" preserveAspectRatio="none" fill="#FFFFFF">
+      <path d="M0 48 Q180 20 360 48 T720 48 T1080 48 T1440 48 T1800 48 T2160 48 T2520 48 T2880 48 V80 H0 Z"/>
+    </svg>
+  </div>
+
+  <!-- Invitation au scroll -->
+  <div class="galerie-hero-scroll" aria-hidden="true">
+    <i class="ti ti-chevron-down"></i>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section class="section">
+  <div class="container">
+
+    <!-- Masonry Grid -->
+    <div class="gallery-grid fade-up">
+
+      <div class="gallery-item"><a href="assets/images/galerie-1.jpg" class="glightbox"><img src="assets/images/galerie-1.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-2.jpg" class="glightbox"><img src="assets/images/galerie-2.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-3.jpg" class="glightbox"><img src="assets/images/galerie-3.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-4.jpg" class="glightbox"><img src="assets/images/galerie-4.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-5.jpg" class="glightbox"><img src="assets/images/galerie-5.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-6.jpg" class="glightbox"><img src="assets/images/galerie-6.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-7.jpg" class="glightbox"><img src="assets/images/galerie-7.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-8.jpg" class="glightbox"><img src="assets/images/galerie-8.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-9.jpg" class="glightbox"><img src="assets/images/galerie-9.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-10.jpg" class="glightbox"><img src="assets/images/galerie-10.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-11.jpg" class="glightbox"><img src="assets/images/galerie-11.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-12.jpg" class="glightbox"><img src="assets/images/galerie-12.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-13.jpg" class="glightbox"><img src="assets/images/galerie-13.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-14.jpg" class="glightbox"><img src="assets/images/galerie-14.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-15.jpg" class="glightbox"><img src="assets/images/galerie-15.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-16.jpg" class="glightbox"><img src="assets/images/galerie-16.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-17.jpg" class="glightbox"><img src="assets/images/galerie-17.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-18.jpg" class="glightbox"><img src="assets/images/galerie-18.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-19.jpg" class="glightbox"><img src="assets/images/galerie-19.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-20.jpg" class="glightbox"><img src="assets/images/galerie-20.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-21.jpg" class="glightbox"><img src="assets/images/galerie-21.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-22.jpg" class="glightbox"><img src="assets/images/galerie-22.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-23.jpg" class="glightbox"><img src="assets/images/galerie-23.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-24.jpg" class="glightbox"><img src="assets/images/galerie-24.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-25.jpg" class="glightbox"><img src="assets/images/galerie-25.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-26.jpg" class="glightbox"><img src="assets/images/galerie-26.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-27.jpg" class="glightbox"><img src="assets/images/galerie-27.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-28.jpg" class="glightbox"><img src="assets/images/galerie-28.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-29.jpg" class="glightbox"><img src="assets/images/galerie-29.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-30.jpg" class="glightbox"><img src="assets/images/galerie-30.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+      <div class="gallery-item"><a href="assets/images/galerie-31.jpg" class="glightbox"><img src="assets/images/galerie-31.jpg" alt="The Lagoon Travel - Île Maurice" loading="lazy"></a></div>
+
+    </div>
+
+    <!-- Instagram CTA -->
+    <div class="fade-up" style="text-align:center;margin-top:64px;padding:40px;background:var(--mist);border-radius:var(--radius-lg);">
+      <i class="ti ti-brand-instagram" style="font-size:2rem;color:var(--blue-logo);display:block;margin-bottom:12px;"></i>
+      <p style="font-family:var(--font-display);font-size:1.3rem;color:var(--anthracite);margin-bottom:16px;" data-i18n="gallery.instagram">
+        Suivez-nous sur Instagram @thelagoon.travel.mu
+      </p>
+      <a href="https://www.instagram.com/thelagoon.travel.mu" target="_blank" rel="noopener" class="btn btn-primary" aria-label="Instagram The Lagoon Travel">
+        <i class="ti ti-brand-instagram"></i> @thelagoon.travel.mu
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-bg" aria-hidden="true"></div>
+  <div class="cta-frame" aria-hidden="true"></div>
+  <div class="container cta-inner">
+    <span class="section-eyebrow section-eyebrow--light fade-up" data-i18n="galerie.cta_eyebrow">Votre tour maintenant</span>
+    <h2 class="cta-title fade-up" data-i18n="galerie.cta_title">
+      Un voyage à la hauteur de ces photos ?
+    </h2>
+    <p class="cta-text fade-up" data-i18n="galerie.cta_text">
+      On conçoit votre séjour sur mesure à l'île Maurice, comme pour eux.
+    </p>
+    <div class="cta-actions fade-up">
+      <a href="devis.html" class="btn btn-white btn-lg" data-i18n="galerie.cta_btn">C'est parti pour Maurice →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="assets/images/Logo_The_lagoon.png" alt="The Lagoon Travel" loading="lazy">
+        </div>
+        <p class="footer-desc" data-i18n="footer.desc">Votre agence de voyages haut de gamme à l'île Maurice.</p>
+      </div>
+      <div class="footer-links">
+        <h4 class="footer-col-title" data-i18n="footer.links_title">Liens rapides</h4>
+        <ul class="footer-links-list">
+          <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+          <li><a href="concept.html" data-i18n="nav.concept">Le Concept</a></li>
+          <li><a href="prestations.html" data-i18n="nav.prestations">Nos prestations</a></li>
+          <li><a href="realisations.html" data-i18n="nav.realisations">Nos Réalisations</a></li>
+          <li><a href="about.html" data-i18n="nav.about">À propos de nous</a></li>
+          <li><a href="galerie.html" data-i18n="nav.gallery">Galerie</a></li>
+          <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4 class="footer-col-title" data-i18n="footer.contact_title">Nous trouver</h4>
+        <div class="footer-contact-item"><i class="ti ti-brand-whatsapp"></i><a href="https://wa.me/23054829958" target="_blank" rel="noopener">+230 5482 9958</a></div>
+        <div class="footer-contact-item"><i class="ti ti-mail"></i><a href="mailto:thelagoon.mu@gmail.com">thelagoon.mu@gmail.com</a></div>
+        <div class="footer-contact-item"><i class="ti ti-brand-instagram"></i><a href="https://www.instagram.com/thelagoon.travel.mu" target="_blank" rel="noopener">@thelagoon.travel.mu</a></div>
+        <div class="footer-contact-item"><i class="ti ti-brand-facebook"></i><a href="https://facebook.com/thelagoontravel" target="_blank" rel="noopener">The Lagoon Travel</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-i18n="footer.copyright">© 2026 The Lagoon Travel · Tous droits réservés</span>
+    <span>·</span>
+    <span><span data-i18n="footer.heart">Île Maurice</span></span>
+  </div>
+</footer>
+
+<script async src="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/js/glightbox.min.js" integrity="sha384-MZZbZ6RXJudK43v1qY1zOWKOU2yfeBPatuFoKyHAaAgHTUZhwblRTc9CphTt4IGQ" crossorigin="anonymous" onload="window.initLightbox&&window.initLightbox()"></script>
+<script defer src="assets/js/i18n.js"></script>
+<script defer src="assets/js/main.js"></script>
+<script defer src="assets/js/galerie.js"></script></body>
+</html>

@@ -1,0 +1,201 @@
+/* ============================================================
+   THE LAGOON TRAVEL — animations.css
+   Scroll reveal, hover effects, transitions, motion support
+   ============================================================ */
+
+/* ── Scroll Reveal ───────────────────────────────────── */
+
+:where(html.js) .fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delays for grid children */
+.fade-up:nth-child(1) { transition-delay: 0s; }
+.fade-up:nth-child(2) { transition-delay: 0.1s; }
+.fade-up:nth-child(3) { transition-delay: 0.2s; }
+.fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+:where(html.js) .fade-in {
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.fade-in.visible { opacity: 1; }
+
+:where(html.js) .fade-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+:where(html.js) .fade-right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Hover Effects ───────────────────────────────────── */
+
+.hover-lift {
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Loading Skeleton ────────────────────────────────── */
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg,
+    rgba(33,150,211,0.05) 25%,
+    rgba(33,150,211,0.12) 50%,
+    rgba(33,150,211,0.05) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-card);
+}
+
+/* ── Ripple on Button ────────────────────────────────── */
+
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.25);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+
+.btn:active::after {
+  width: 200px;
+  height: 200px;
+  opacity: 1;
+}
+
+/* ── Tab Content Fade ────────────────────────────────── */
+
+@keyframes tabFade {
+  from { opacity: 0.3; transform: translateY(6px); }
+  to   { opacity: 1;   transform: translateY(0); }
+}
+
+.tab-panel.active { animation: tabFade 0.3s ease; }
+
+/* ── Typewriter cursor (hero eyebrow) ────────────────── */
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Number counter animation ────────────────────────── */
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.stat-number.counting { animation: countUp 0.5s ease; }
+
+/* ── Page transitions ────────────────────────────────── */
+
+.page-enter {
+  animation: pageEnter 0.4s ease;
+}
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Overlay slide ───────────────────────────────────── */
+
+@keyframes overlayIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Notification toast ──────────────────────────────── */
+
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--anthracite);
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: 28px;
+  font-size: 0.88rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 9999;
+  pointer-events: none;
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  text-align: center;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── Prefers Reduced Motion ──────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .fade-up,
+  .fade-in,
+  .fade-left,
+  .fade-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero-fallback { animation: none; }
+  .scroll-line   { animation: none; }
+}

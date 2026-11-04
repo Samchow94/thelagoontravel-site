@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Filet de sécurité de l'affichage : les blocs .fade-* ne sont cachés que si le JS tourne (html.js).
+       Si main.js n'a pas démarré au bout de 1,5 s, on révèle les blocs proches de l'écran (et au défilement). -->
+  <script>
+    document.documentElement.classList.add('js');
+    (function () {
+      var sel = '.fade-up,.fade-in,.fade-left,.fade-right';
+      function reveal() {
+        if (window.__fadeReady) return true;
+        document.querySelectorAll(sel).forEach(function (e) {
+          if (e.getBoundingClientRect().top < innerHeight + 200) e.classList.add('visible');
+        });
+        return false;
+      }
+      setTimeout(function () {
+        if (!reveal()) addEventListener('scroll', reveal, { passive: true });
+      }, 1500);
+    })();
+  </script>
+  <title>Le Concept — The Lagoon Travel</title>
+  <meta name="description" content="Découvrez pourquoi faire appel à un travel planner pour organiser votre voyage à l'île Maurice. Expertise locale, 100% personnalisé, gain de temps.">
+  <link rel="canonical" href="https://thelagoontravel.com/concept.html">
+
+  <link rel="stylesheet" href="assets/css/tabler-subset.css?v=1">
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
+  <link rel="stylesheet" href="assets/css/components.css?v=3">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Navigation principale">
+  <div class="nav-container">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navOverlay">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-lang-compact">
+      <button class="lang-btn lang-btn-compact active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+      <span>|</span>
+      <button class="lang-btn lang-btn-compact" data-lang="en" onclick="switchLang('en')">EN</button>
+    </div>
+    <a href="index.html" class="nav-logo" aria-label="Accueil The Lagoon Travel">
+      <div class="logo-wrap">
+        <img src="assets/images/Logo_The_lagoon.png" alt="The Lagoon Travel" class="logo-img" fetchpriority="high">
+      </div>
+    </a>
+    <div class="nav-right">
+      <div class="lang-switcher" role="group" aria-label="Langue">
+        <button class="lang-btn active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      </div>
+      <a href="devis.html" class="btn btn-primary btn-primary-nav btn-sm" data-i18n="nav.cta">Organisons votre voyage ! 🌴</a>
+    </div>
+  </div>
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Menu principal">
+    <div class="nav-overlay-inner">
+      <button class="menu-close" aria-label="Fermer le menu">
+        <i class="ti ti-x"></i>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+        <li>
+          <button class="nav-menu-btn" type="button" aria-expanded="false">
+            <span data-i18n="nav.concept">Le Concept</span> <i class="ti ti-chevron-down nav-chevron" aria-hidden="true"></i>
+          </button>
+          <ul class="nav-submenu">
+            <li><a href="concept.html" data-i18n="nav.concept_sub">Concept</a></li>
+            <li><a href="prestations.html" data-i18n="nav.prestations">Nos prestations</a></li>
+          </ul>
+        </li>
+        <li><a href="realisations.html" data-i18n="nav.realisations">Nos Réalisations</a></li>
+        <li><a href="about.html" data-i18n="nav.about">À propos de nous</a></li>
+        <li><a href="galerie.html" data-i18n="nav.gallery">Galerie</a></li>
+        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      </ul>
+
+      <div class="nav-overlay-langs lang-switcher" role="group" aria-label="Langue">
+        <button class="lang-btn active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="page-hero page-hero--concept">
+  <video class="page-hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/galerie-hero-poster.jpg">
+    <source src="assets/videos/galerie-hero.mp4" type="video/mp4">
+  </video>
+  <div class="page-hero-content">
+    <span class="page-hero-eyebrow" data-i18n="concept.hero_eyebrow">Travel Planner · Île Maurice</span>
+    <h1 class="page-hero-title fade-up" data-i18n="concept.hero_title">Laissez-nous organiser vos vacances de rêves</h1>
+    <p class="page-hero-subtitle fade-up" data-i18n="concept.hero_subtitle">Pourquoi choisir un travel planner pour l'organisation de votre voyage à Maurice ?</p>
+  </div>
+</section>
+
+<!-- ══ BLOC 1 — Le casse-tête ══ -->
+<section class="concept-block concept-block--white">
+  <div class="container">
+    <div class="concept-split">
+      <div class="concept-split-text fade-left">
+        <span class="section-eyebrow" data-i18n="concept.problem_eyebrow">On connaît le problème</span>
+        <h2 class="concept-title" data-i18n="concept.problem_title">Organiser un voyage peut vite devenir <em>un vrai casse-tête</em></h2>
+        <div class="divider divider--left"></div>
+        <p class="concept-lead" data-i18n="concept.problem_lead">
+          Entre les heures passées à comparer les prix des activités et des vols, la recherche des meilleurs logements et la planification de l'itinéraire, cela peut vite devenir stressant et se transformer en un véritable casse-tête.
+        </p>
+      </div>
+      <div class="concept-chaos fade-right" aria-hidden="true">
+        <div class="concept-chaos-card">
+          <span class="concept-chaos-emoji">✈️</span>
+          <div><h3 data-i18n="concept.chaos1_title">Comparer 47 vols</h3><span data-i18n="concept.chaos1_text">3 heures de recherche…</span></div>
+        </div>
+        <div class="concept-chaos-card">
+          <span class="concept-chaos-emoji">🏨</span>
+          <div><h3 data-i18n="concept.chaos2_title">Éplucher 230 avis d'hôtels</h3><span data-i18n="concept.chaos2_text">2 soirées perdues…</span></div>
+        </div>
+        <div class="concept-chaos-card">
+          <span class="concept-chaos-emoji">🗺️</span>
+          <div><h3 data-i18n="concept.chaos3_title">Construire l'itinéraire</h3><span data-i18n="concept.chaos3_text">Par où commencer ?</span></div>
+        </div>
+        <div class="concept-chaos-card">
+          <span class="concept-chaos-emoji">💸</span>
+          <div><h3 data-i18n="concept.chaos4_title">Traquer les bons prix</h3><span data-i18n="concept.chaos4_text">Encore 12 onglets ouverts…</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BLOC — Votre carnet de voyage ══ -->
+<section class="concept-block concept-carnet-section">
+  <div class="container">
+    <div class="section-header fade-up" style="text-align:center; max-width:700px; margin:0 auto 40px;">
+      <span class="section-eyebrow" data-i18n="concept.carnet_eyebrow">Votre carnet de voyage</span>
+      <div class="divider"></div>
+      <p style="color: rgba(255,255,255,0.75); font-size: 15px;
+                line-height: 1.8; margin-top: 20px;" data-i18n="concept.carnet_text1">
+        Avant même de poser le pied sur l'île, vous saurez déjà où dormir,
+        quoi faire et où manger comme un vrai local. Votre carnet de voyage
+        rassemble tout ce dont vous avez besoin : itinéraire jour par jour,
+        meilleures adresses, contacts utiles et petites astuces glanées sur
+        le terrain.
+      </p>
+      <p style="color: rgba(255,255,255,0.75); font-size: 15px;
+                line-height: 1.8; margin-top: 20px;" data-i18n="concept.carnet_text2">
+        Un souvenir tangible qui commence bien avant votre départ, et qui
+        vous suit jusqu'au bout de l'aventure.
+      </p>
+    </div>
+    <div class="concept-carnet-cta fade-up">
+      <a href="prestations.html" class="btn btn-primary" data-i18n="concept.carnet_btn">Découvrez nos formules →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BLOC 2 — Notre rôle ══ -->
+<section class="concept-block concept-block--mist">
+  <div class="container">
+    <div class="concept-split concept-split--reverse">
+      <div class="concept-photo-stack fade-left">
+        <img src="assets/images/role-grande.jpg" alt="Votre expert dédié à l'île Maurice" class="concept-photo-main" loading="lazy">
+      </div>
+      <div class="concept-split-text fade-right">
+        <span class="section-eyebrow" data-i18n="concept.role_eyebrow">Notre rôle</span>
+        <h2 class="concept-title" data-i18n="concept.role_title">Votre expert dédié à l'île Maurice</h2>
+        <div class="divider divider--left"></div>
+        <p class="concept-lead" data-i18n="concept.role_lead">
+          C'est là que le rôle d'un travel planner prend tout son sens. En faisant appel à nous, vous déléguez entièrement l'organisation de votre voyage à des experts qui connaissent l'île <em>comme leur poche</em> — de la première idée jusqu'au carnet de voyage final.
+        </p>
+        <ul class="concept-stats">
+          <li><strong>7j/7</strong><span data-i18n="concept.role_stat1">à vos côtés</span></li>
+          <li><strong>100%</strong><span data-i18n="concept.role_stat2">sur mesure</span></li>
+          <li><strong>0</strong><span data-i18n="concept.role_stat3">stress pour vous</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BLOC 3 — La question ChatGPT ══ -->
+<section class="concept-block concept-block--white">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow" data-i18n="concept.chatgpt_eyebrow">La question qu'on nous pose souvent</span>
+      <h2 class="concept-title concept-title--center" data-i18n="concept.chatgpt_title">« Et pourquoi pas ChatGPT ? »</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="concept-chat fade-up">
+      <div class="concept-chat-msg concept-chat-msg--user">
+        <div class="concept-chat-bubble" data-i18n="concept.chatgpt_user_msg">Mais pourquoi faire appel à vous alors que je peux tout faire sur ChatGPT ?</div>
+        <div class="concept-chat-avatar" aria-hidden="true">Vous</div>
+      </div>
+      <div class="concept-chat-msg concept-chat-msg--us">
+        <div class="concept-chat-avatar concept-chat-avatar--logo" aria-hidden="true">
+          <img src="assets/images/Logo_The_lagoon.png" alt="" loading="lazy">
+        </div>
+        <div class="concept-chat-bubble">
+          <p data-i18n="concept.chatgpt_us_msg1">Et vous avez sans doute raison&nbsp;! ChatGPT est un très bon outil pour donner des conseils. Mais vous oubliez un point essentiel : il ne vous apportera jamais le <strong>jugement humain</strong> ni la <strong>personnalisation réelle</strong> qu'on peut vous offrir.</p>
+          <p data-i18n="concept.chatgpt_us_msg2">En soi, vous aurez les mêmes itinéraires, les mêmes activités et les mêmes conseils que tout le monde. Mais un <strong>itinéraire personnalisé</strong> selon vos envies, des <strong>adresses confidentielles</strong> que seuls les locaux connaissent, des conseils d'un expert basé sur sa connaissance de la destination, des prestataires et des retours de voyageurs. Sans compter une <strong>assistance et un accompagnement</strong> du début à la fin, ça ChatGPT ne peut pas vous le donner.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="concept-vs-label fade-up" data-i18n="concept.chatgpt_vs_label">Ce que ChatGPT ne saura jamais&nbsp;:</p>
+    <div class="concept-vs-grid">
+      <div class="concept-vs-item fade-up">
+        <svg class="concept-vs-illu" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="spotIlluBg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#2196D3" stop-opacity="0.12"/>
+              <stop offset="1" stop-color="#1ABCB0" stop-opacity="0.16"/>
+            </linearGradient>
+          </defs>
+          <!-- Cercle de fond dégradé -->
+          <circle cx="60" cy="60" r="56" fill="url(#spotIlluBg)"/>
+          <!-- Soleil -->
+          <g stroke="#1ABCB0" stroke-width="1.6" stroke-linecap="round" fill="none">
+            <circle cx="88" cy="32" r="6"/>
+            <line x1="88" y1="21" x2="88" y2="24"/>
+            <line x1="88" y1="40" x2="88" y2="43"/>
+            <line x1="77" y1="32" x2="80" y2="32"/>
+            <line x1="96" y1="32" x2="99" y2="32"/>
+            <line x1="80.2" y1="24.2" x2="82.3" y2="26.3"/>
+            <line x1="93.7" y1="37.7" x2="95.8" y2="39.8"/>
+            <line x1="95.8" y1="24.2" x2="93.7" y2="26.3"/>
+            <line x1="82.3" y1="37.7" x2="80.2" y2="39.8"/>
+          </g>
+          <!-- Petit palmier -->
+          <g stroke="#1ABCB0" stroke-width="1.6" stroke-linecap="round" fill="none">
+            <path d="M31,88 C32,80 32,74 34,68"/>
+            <path d="M34,68 C29,64 24,63 20,65"/>
+            <path d="M34,68 C31,62 27,60 22,60"/>
+            <path d="M34,68 C36,62 40,59 45,59"/>
+            <path d="M34,68 C39,64 44,63 48,66"/>
+          </g>
+          <!-- Emplacement marqué sur la carte -->
+          <ellipse cx="60" cy="78" rx="13" ry="4" fill="none" stroke="#2196D3" stroke-width="1.4" stroke-dasharray="3 4" stroke-linecap="round" opacity="0.55"/>
+          <!-- Pin de localisation -->
+          <path d="M60,30 C69,30 76,37 76,46 C76,57 60,74 60,74 C60,74 44,57 44,46 C44,37 51,30 60,30 Z"
+                fill="#FFFFFF" stroke="#2196D3" stroke-width="2" stroke-linejoin="round"/>
+          <!-- Étoile du spot secret -->
+          <path d="M60,40 L61.8,44.6 L66.7,44.8 L62.9,47.9 L64.1,52.7 L60,50 L55.9,52.7 L57.1,47.9 L53.3,44.8 L58.2,44.6 Z"
+                fill="#1ABCB0"/>
+          <!-- Vagues -->
+          <g stroke-width="1.6" stroke-linecap="round" fill="none">
+            <path d="M22,92 Q30,87 38,92 T54,92 T70,92 T86,92 T100,92" stroke="#2196D3" opacity="0.8"/>
+            <path d="M30,100 Q37,96 44,100 T58,100 T72,100 T86,100" stroke="#1ABCB0" opacity="0.6"/>
+          </g>
+        </svg>
+        <h3 data-i18n="concept.vs1_title">Les meilleurs spots</h3>
+        <p data-i18n="concept.vs1_text">Les plages où il n'y a jamais personne, les points de vue que même certains guides ignorent — on connaît tous les recoins de l'île.</p>
+      </div>
+      <div class="concept-vs-item fade-up">
+        <i class="ti ti-tools-kitchen-2"></i>
+        <h3 data-i18n="concept.vs2_title">Les nouveaux restos</h3>
+        <p data-i18n="concept.vs2_text">Ceux qui viennent d'ouvrir, testés et approuvés par nos soins — pas encore sur Google.</p>
+      </div>
+      <div class="concept-vs-item fade-up">
+        <i class="ti ti-heart-handshake"></i>
+        <h3 data-i18n="concept.vs3_title">Les bons prestataires</h3>
+        <p data-i18n="concept.vs3_text">On travaille uniquement avec ceux qu'on connaît et en qui on a confiance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BLOC 4 — Ce qu'on apporte ══ -->
+<section class="concept-block concept-block--mist concept-benefits-section">
+  <div class="container">
+    <div class="section-header concept-benefits-header fade-up">
+      <span class="section-eyebrow" data-i18n="concept.benefits_eyebrow">Avec The Lagoon Travel</span>
+      <h2 class="concept-title concept-title--center" data-i18n="concept.benefits_title">Ce qu'on vous apporte vraiment</h2>
+      <div class="divider"></div>
+      <p class="concept-benefits-quote" data-i18n="concept.benefits_quote">&laquo;&nbsp;Nous vous faisons gagner du temps, évitons les erreurs et vous construisons un voyage pensé pour vous. La valeur n'est pas l'information, c'est la sélection, la personnalisation et l'organisation.&nbsp;&raquo;</p>
+    </div>
+    <div class="concept-benefits-grid">
+
+      <div class="concept-benefit-card fade-up">
+        <div class="concept-benefit-img"><img src="assets/images/chamarel.jpg" alt="Terre des sept couleurs de Chamarel" loading="lazy"></div>
+        <div class="concept-benefit-body">
+          <div class="concept-benefit-icon"><i class="ti ti-route"></i></div>
+          <h3 data-i18n="concept.benefit1_title">Itinéraire 100% personnalisé</h3>
+        </div>
+      </div>
+
+      <div class="concept-benefit-card fade-up">
+        <div class="concept-benefit-img"><img src="assets/images/diner.jpg" alt="Dîner les pieds dans le sable à l'île Maurice" loading="lazy"></div>
+        <div class="concept-benefit-body">
+          <div class="concept-benefit-icon"><i class="ti ti-map-pin"></i></div>
+          <h3 data-i18n="concept.benefit2_title">Adresses confidentielles</h3>
+        </div>
+      </div>
+
+      <div class="concept-benefit-card fade-up">
+        <div class="concept-benefit-img"><img src="assets/images/galerie-15.jpg" alt="Conseils d'experts terrain à l'île Maurice" loading="lazy"></div>
+        <div class="concept-benefit-body">
+          <div class="concept-benefit-icon"><i class="ti ti-users"></i></div>
+          <h3 data-i18n="concept.benefit3_title">Conseils d'experts terrain</h3>
+        </div>
+      </div>
+
+      <div class="concept-benefit-card fade-up">
+        <div class="concept-benefit-img"><img src="assets/images/accompagnement-7j7.jpg" alt="Accompagnement 7j/7" loading="lazy"></div>
+        <div class="concept-benefit-body">
+          <div class="concept-benefit-icon"><i class="ti ti-headset"></i></div>
+          <h3 data-i18n="concept.benefit4_title">Accompagnement 7j/7</h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA FINAL ══ -->
+<section class="concept-cta">
+  <div class="container" style="text-align:center;">
+    <h2 class="concept-cta-title fade-up" data-i18n="concept.final_cta_title">Prêt à nous confier votre voyage ?</h2>
+    <a href="devis.html" class="btn concept-cta-btn fade-up" data-i18n="concept.cta_btn">Discutons de votre projet →</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="assets/images/Logo_The_lagoon.png" alt="The Lagoon Travel" class="footer-logo-img" loading="lazy">
+        </div>
+        <p data-i18n="footer.desc">Votre organisateur de voyage sur mesure à l'île Maurice. Des expériences uniques, pensées pour vous.</p>
+      </div>
+      <div class="footer-links fade-up">
+        <h4 class="footer-col-title" data-i18n="footer.links_title">Liens rapides</h4>
+        <ul class="footer-links-list">
+          <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+          <li><a href="concept.html" data-i18n="nav.concept">Le Concept</a></li>
+          <li><a href="prestations.html" data-i18n="nav.prestations">Nos prestations</a></li>
+          <li><a href="realisations.html" data-i18n="nav.realisations">Nos Réalisations</a></li>
+          <li><a href="about.html" data-i18n="nav.about">À propos de nous</a></li>
+          <li><a href="galerie.html" data-i18n="nav.gallery">Galerie</a></li>
+          <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact fade-up">
+        <h4 class="footer-col-title" data-i18n="footer.contact_title">Nous trouver</h4>
+        <div class="footer-contact-item"><i class="ti ti-brand-whatsapp"></i><a href="https://wa.me/23054829958" target="_blank" rel="noopener">WhatsApp : +230 5482 9958</a></div>
+        <div class="footer-contact-item"><i class="ti ti-mail"></i><a href="mailto:thelagoon.mu@gmail.com">thelagoon.mu@gmail.com</a></div>
+        <div class="footer-contact-item"><i class="ti ti-brand-instagram"></i><a href="https://www.instagram.com/thelagoon.travel.mu" target="_blank" rel="noopener">@thelagoon.travel.mu</a></div>
+        <div class="footer-contact-item"><i class="ti ti-brand-facebook"></i><a href="https://facebook.com/thelagoontravel" target="_blank" rel="noopener">The Lagoon Travel</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-i18n="footer.copyright">© 2026 The Lagoon Travel · Tous droits réservés</span>
+    <span>·</span>
+    <span><span data-i18n="footer.heart">Île Maurice</span></span>
+  </div>
+</footer>
+
+<script defer src="assets/js/i18n.js"></script>
+<script defer src="assets/js/main.js"></script></body>
+</html>

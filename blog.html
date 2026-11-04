@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Filet de sécurité de l'affichage : les blocs .fade-* ne sont cachés que si le JS tourne (html.js).
+       Si main.js n'a pas démarré au bout de 1,5 s, on révèle les blocs proches de l'écran (et au défilement). -->
+  <script>
+    document.documentElement.classList.add('js');
+    (function () {
+      var sel = '.fade-up,.fade-in,.fade-left,.fade-right';
+      function reveal() {
+        if (window.__fadeReady) return true;
+        document.querySelectorAll(sel).forEach(function (e) {
+          if (e.getBoundingClientRect().top < innerHeight + 200) e.classList.add('visible');
+        });
+        return false;
+      }
+      setTimeout(function () {
+        if (!reveal()) addEventListener('scroll', reveal, { passive: true });
+      }, 1500);
+    })();
+  </script>
+  <title>Blog — The Lagoon Travel</title>
+  <meta name="description" content="Conseils, destinations et inspirations pour votre prochain séjour à l'île Maurice.">
+  <link rel="canonical" href="https://thelagoontravel.com/blog.html">
+
+  <link rel="stylesheet" href="assets/css/tabler-subset.css?v=1">
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
+  <link rel="stylesheet" href="assets/css/components.css?v=3">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-lang-compact">
+      <button class="lang-btn lang-btn-compact active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+      <span>|</span>
+      <button class="lang-btn lang-btn-compact" data-lang="en" onclick="switchLang('en')">EN</button>
+    </div>
+    <a href="index.html" class="nav-logo">
+      <div class="logo-wrap">
+        <img src="assets/images/Logo_The_lagoon.png" alt="The Lagoon Travel" class="logo-img" fetchpriority="high">
+      </div>
+    </a>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      </div>
+      <a href="devis.html" class="btn btn-primary btn-primary-nav btn-sm" data-i18n="nav.cta">Préparez votre voyage</a>
+    </div>
+  </div>
+  <div class="nav-overlay" id="navOverlay">
+    <div class="nav-overlay-inner">
+      <button class="menu-close" aria-label="Fermer le menu">
+        <i class="ti ti-x"></i>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+        <li>
+          <button class="nav-menu-btn" type="button" aria-expanded="false">
+            <span data-i18n="nav.concept">Le Concept</span> <i class="ti ti-chevron-down nav-chevron" aria-hidden="true"></i>
+          </button>
+          <ul class="nav-submenu">
+            <li><a href="concept.html" data-i18n="nav.concept_sub">Concept</a></li>
+            <li><a href="prestations.html" data-i18n="nav.prestations">Nos prestations</a></li>
+          </ul>
+        </li>
+        <li><a href="realisations.html" data-i18n="nav.realisations">Nos Réalisations</a></li>
+        <li><a href="about.html" data-i18n="nav.about">À propos de nous</a></li>
+        <li><a href="galerie.html" data-i18n="nav.gallery">Galerie</a></li>
+        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      </ul>
+
+      <div class="nav-overlay-langs lang-switcher" role="group" aria-label="Langue">
+        <button class="lang-btn active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <video class="page-hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/galerie-hero-poster.jpg">
+    <source src="assets/videos/galerie-hero.mp4" type="video/mp4">
+  </video>
+  <div class="page-hero-content">
+    <span class="page-hero-eyebrow" data-i18n="blog.eyebrow">Inspirations voyage</span>
+    <h1 class="page-hero-title fade-up" data-i18n="blog.title">Notre Blog</h1>
+    <p class="page-hero-subtitle fade-up" data-i18n="blog.subtitle">Conseils, destinations et inspirations pour votre prochain séjour à Maurice.</p>
+  </div>
+</section>
+
+<!-- Blog listing -->
+<section class="section">
+  <div class="container">
+
+    <!-- Filters -->
+    <div class="filters fade-up" role="group" aria-label="Filtres blog">
+      <button class="filter-btn blog-filter-btn active" data-filter="all" data-i18n="blog.filter_all">Tout</button>
+      <button class="filter-btn blog-filter-btn" data-filter="conseils" data-i18n="blog.filter_tips">Conseils</button>
+      <button class="filter-btn blog-filter-btn" data-filter="destinations" data-i18n="blog.filter_destinations">Destinations</button>
+      <button class="filter-btn blog-filter-btn" data-filter="inspirations" data-i18n="blog.filter_inspirations">Inspirations</button>
+      <button class="filter-btn blog-filter-btn" data-filter="actualites" data-i18n="blog.filter_news">Actualités</button>
+    </div>
+
+    <!-- Articles grid -->
+    <div class="blog-grid">
+
+      <!-- Article 1 -->
+      <div class="blog-card-wrap" data-category="destinations">
+        <article class="blog-card fade-up">
+          <div class="blog-card-image">
+            <div class="img-gradient" style="background:linear-gradient(135deg,#1565C0,#1ABCB0);"></div>
+            <span class="badge badge-blue blog-card-category" data-i18n="blog.filter_destinations">Destinations</span>
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date" data-i18n="blog.card1_date">12 juin 2026</p>
+            <h2 class="blog-card-title" data-i18n="blog.card1_title">Les 5 plages secrètes de Maurice que seuls les locaux connaissent</h2>
+            <p class="blog-card-excerpt" data-i18n="blog.card1_excerpt">
+              Oubliez les plages bondées des guides touristiques. Maël vous dévoile ses cinq spots préservés,
+              accessibles uniquement si vous connaissez les bons chemins. Du lagon de l'est au nord sauvage,
+              découvrez une île encore vierge de tourisme de masse.
+            </p>
+            <a href="article.html?slug=plages-secretes" class="blog-read-more" data-i18n="blog.read_more">
+              Lire la suite <i class="ti ti-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Article 2 -->
+      <div class="blog-card-wrap" data-category="inspirations">
+        <article class="blog-card fade-up">
+          <div class="blog-card-image">
+            <div class="img-gradient" style="background:linear-gradient(135deg,#B71C1C,#FF8F00);"></div>
+            <span class="badge badge-teal blog-card-category" data-i18n="blog.filter_inspirations">Inspirations</span>
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date" data-i18n="blog.card2_date">3 juin 2026</p>
+            <h2 class="blog-card-title" data-i18n="blog.card2_title">Voyage de noce à Maurice : notre guide complet 2026</h2>
+            <p class="blog-card-excerpt" data-i18n="blog.card2_excerpt">
+              Île Maurice est depuis des décennies la destination privilégiée des couples en voyage de noce.
+              Entre lagons turquoise, hôtels de luxe et expériences romantiques uniques, découvrez comment
+              organiser le séjour de vos rêves grâce aux conseils de Tom.
+            </p>
+            <a href="article.html?slug=voyage-de-noce-2026" class="blog-read-more" data-i18n="blog.read_more">
+              Lire la suite <i class="ti ti-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Article 3 -->
+      <div class="blog-card-wrap" data-category="conseils">
+        <article class="blog-card fade-up">
+          <div class="blog-card-image">
+            <div class="img-gradient" style="background:linear-gradient(135deg,#1565C0,#C2185B);"></div>
+            <span class="badge badge-teal blog-card-category" data-i18n="blog.filter_tips">Conseils</span>
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date" data-i18n="blog.card3_date">28 mai 2026</p>
+            <h2 class="blog-card-title" data-i18n="blog.card3_title">EVG à Maurice : idées originales pour une fête inoubliable</h2>
+            <p class="blog-card-excerpt" data-i18n="blog.card3_excerpt">
+              Vous cherchez à organiser un enterrement de vie de garçon hors du commun ?
+              L'île Maurice offre un cadre exceptionnel pour des aventures nautiques, des soirées privées
+              et des expériences insolites que vos amis ne sont pas prêts d'oublier.
+            </p>
+            <a href="article.html?slug=evg-mauritius" class="blog-read-more" data-i18n="blog.read_more">
+              Lire la suite <i class="ti ti-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-bg" aria-hidden="true"></div>
+  <div class="cta-frame" aria-hidden="true"></div>
+  <div class="container cta-inner">
+    <span class="section-eyebrow section-eyebrow--light fade-up" data-i18n="blog.cta_eyebrow">Passez à l'action</span>
+    <h2 class="cta-title fade-up" data-i18n="blog.cta_title">
+      Inspiré(e) par nos articles ?
+    </h2>
+    <p class="cta-text fade-up" data-i18n="blog.cta_text">
+      Transformez vos idées en voyage sur mesure — devis gratuit et sans engagement.
+    </p>
+    <div class="cta-actions fade-up">
+      <a href="devis.html" class="btn btn-white btn-lg" data-i18n="blog.cta_btn">Commençons l'aventure →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="assets/images/Logo_The_lagoon.png" alt="The Lagoon Travel" loading="lazy">
+        </div>
+        <p class="footer-desc" data-i18n="footer.desc">Votre agence de voyages haut de gamme à l'île Maurice.</p>
+      </div>
+      <div class="footer-links">
+        <h4 class="footer-col-title" data-i18n="footer.links_title">Liens rapides</h4>
+        <ul class="footer-links-list">
+          <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+          <li><a href="concept.html" data-i18n="nav.concept">Le Concept</a></li>
+          <li><a href="prestations.html" data-i18n="nav.prestations">Nos prestations</a></li>
+          <li><a href="realisations.html" data-i18n="nav.realisations">Nos Réalisations</a></li>
+          <li><a href="about.html" data-i18n="nav.about">À propos de nous</a></li>
+          <li><a href="galerie.html" data-i18n="nav.gallery">Galerie</a></li>
+          <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4 class="footer-col-title" data-i18n="footer.contact_title">Nous trouver</h4>
+        <div class="footer-contact-item"><i class="ti ti-brand-whatsapp"></i><a href="https://wa.me/23054829958" target="_blank" rel="noopener">+230 5482 9958</a></div>
+        <div class="footer-contact-item"><i class="ti ti-mail"></i><a href="mailto:thelagoon.mu@gmail.com">thelagoon.mu@gmail.com</a></div>
+        <div class="footer-contact-item"><i class="ti ti-brand-instagram"></i><a href="https://www.instagram.com/thelagoon.travel.mu" target="_blank" rel="noopener">@thelagoon.travel.mu</a></div>
+        <div class="footer-contact-item"><i class="ti ti-brand-facebook"></i><a href="https://facebook.com/thelagoontravel" target="_blank" rel="noopener">The Lagoon Travel</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-i18n="footer.copyright">© 2026 The Lagoon Travel · Tous droits réservés</span>
+    <span>·</span>
+    <span><span data-i18n="footer.heart">Île Maurice</span></span>
+  </div>
+</footer>
+
+<script defer src="assets/js/i18n.js"></script>
+<script defer src="assets/js/main.js"></script>
+<script defer src="assets/js/blog.js"></script></body>
+</html>

@@ -1,0 +1,30 @@
+# Vidéos de test / inutilisées (garder galerie-hero.mp4 et hero-compressed.mp4)
+assets/videos/hero.mp4
+assets/videos/hero-q*.mp4
+assets/videos/galerie-hero-q*.mp4
+
+# Images brutes, tests et sauvegardes
+assets/images/*.DNG
+assets/images/x.jpg
+assets/images/xx.jpg
+assets/images/xxx.jpg
+assets/images/x2.JPEG
+assets/images/*original-backup*
+
+# Ancienne admin (remplacée par le CMS)
+admin.html
+assets/js/admin.js
+
+# Dépendances, fichiers temporaires, système
+node_modules/
+.env
+.env.*
+*.bak
+*.tmp
+*.log
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Réglages Claude Code locaux
+.claude/

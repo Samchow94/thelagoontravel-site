@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Filet de sécurité de l'affichage : les blocs .fade-* ne sont cachés que si le JS tourne (html.js).
+       Si main.js n'a pas démarré au bout de 1,5 s, on révèle les blocs proches de l'écran (et au défilement). -->
+  <script>
+    document.documentElement.classList.add('js');
+    (function () {
+      var sel = '.fade-up,.fade-in,.fade-left,.fade-right';
+      function reveal() {
+        if (window.__fadeReady) return true;
+        document.querySelectorAll(sel).forEach(function (e) {
+          if (e.getBoundingClientRect().top < innerHeight + 200) e.classList.add('visible');
+        });
+        return false;
+      }
+      setTimeout(function () {
+        if (!reveal()) addEventListener('scroll', reveal, { passive: true });
+      }, 1500);
+    })();
+  </script>
+  <title>FAQ — The Lagoon Travel</title>
+  <meta name="description" content="Toutes les réponses à vos questions sur nos services de voyage sur mesure à l'île Maurice : tarifs, réservations, devis, disponibilité.">
+  <link rel="canonical" href="https://thelagoontravel.com/faq.html">
+
+  <link rel="stylesheet" href="assets/css/tabler-subset.css?v=1">
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
+  <link rel="stylesheet" href="assets/css/components.css?v=3">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Navigation principale">
+  <div class="nav-container">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navOverlay">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-lang-compact">
+      <button class="lang-btn lang-btn-compact active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+      <span>|</span>
+      <button class="lang-btn lang-btn-compact" data-lang="en" onclick="switchLang('en')">EN</button>
+    </div>
+    <a href="index.html" class="nav-logo" aria-label="Accueil The Lagoon Travel">
+      <div class="logo-wrap">
+        <img src="assets/images/Logo_The_lagoon.png" alt="The Lagoon Travel" class="logo-img" fetchpriority="high">
+      </div>
+    </a>
+    <div class="nav-right">
+      <div class="lang-switcher" role="group" aria-label="Langue">
+        <button class="lang-btn active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      </div>
+      <a href="devis.html" class="btn btn-primary btn-primary-nav btn-sm" data-i18n="nav.cta">Organisons votre voyage ! 🌴</a>
+    </div>
+  </div>
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Menu principal">
+    <div class="nav-overlay-inner">
+      <button class="menu-close" aria-label="Fermer le menu">
+        <i class="ti ti-x"></i>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+        <li>
+          <button class="nav-menu-btn" type="button" aria-expanded="false">
+            <span data-i18n="nav.concept">Le Concept</span> <i class="ti ti-chevron-down nav-chevron" aria-hidden="true"></i>
+          </button>
+          <ul class="nav-submenu">
+            <li><a href="concept.html" data-i18n="nav.concept_sub">Concept</a></li>
+            <li><a href="prestations.html" data-i18n="nav.prestations">Nos prestations</a></li>
+          </ul>
+        </li>
+        <li><a href="realisations.html" data-i18n="nav.realisations">Nos Réalisations</a></li>
+        <li><a href="about.html" data-i18n="nav.about">À propos de nous</a></li>
+        <li><a href="galerie.html" data-i18n="nav.gallery">Galerie</a></li>
+        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      </ul>
+
+      <div class="nav-overlay-langs lang-switcher" role="group" aria-label="Langue">
+        <button class="lang-btn active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="page-hero">
+  <video class="page-hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/galerie-hero-poster.jpg">
+    <source src="assets/videos/galerie-hero.mp4" type="video/mp4">
+  </video>
+  <div class="page-hero-content">
+    <span class="page-hero-eyebrow" data-i18n="faq.hero_eyebrow">Besoin d'aide ?</span>
+    <h1 class="page-hero-title fade-up" data-i18n="faq.hero_title">Questions fréquentes</h1>
+    <p class="page-hero-subtitle fade-up" data-i18n="faq.hero_subtitle">Tout ce que vous devez savoir avant de vous lancer</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FAQ — QUESTIONS FRÉQUENTES
+════════════════════════════════════════════ -->
+<section class="faq-section" id="faq">
+
+  <div class="container">
+    <div class="faq-layout">
+
+      <!-- Colonne intro -->
+      <div class="faq-side fade-up">
+        <span class="section-eyebrow">FAQ</span>
+        <h2 class="faq-side-title" data-i18n="faq.side_title">Vous vous posez encore <em>des questions ?</em></h2>
+        <div class="divider divider--left"></div>
+        <p class="faq-side-text" data-i18n="faq.side_text">Nous avons rassemblé ici les réponses aux questions qu'on nous pose le plus souvent. Que ce soit sur nos formules, notre façon de travailler ou l'organisation de votre séjour, vous devriez trouver ce que vous cherchez. Nous préférons être transparents dès le départ, pour que vous sachiez exactement à quoi vous attendre en travaillant avec nous.</p>
+      </div>
+
+      <!-- Accordéon -->
+      <div class="faq-list fade-up">
+
+        <div class="faq-item">
+          <button class="faq-item-q" aria-expanded="false">
+            <span class="faq-item-num" aria-hidden="true">01</span>
+            <span class="faq-item-label" data-i18n="faq.acc1_q">Qu'est-ce qu'un travel planner ?</span>
+            <span class="faq-item-icon" aria-hidden="true"><i class="ti ti-plus"></i></span>
+          </button>
+          <div class="faq-item-a">
+            <div class="faq-item-a-inner">
+              <p data-i18n="faq.acc1_a">Un travel planner est un organisateur de voyage sur mesure. Notre rôle est de concevoir votre itinéraire idéal à Maurice selon vos envies, votre budget et vos dates, et de vous mettre en relation avec nos meilleurs prestataires locaux. Vous gagnez du temps, évitez les mauvaises surprises et profitez d'une expérience unique.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item-q" aria-expanded="false">
+            <span class="faq-item-num" aria-hidden="true">02</span>
+            <span class="faq-item-label" data-i18n="faq.acc2_q">Combien ça coûte de faire appel à vous ?</span>
+            <span class="faq-item-icon" aria-hidden="true"><i class="ti ti-plus"></i></span>
+          </button>
+          <div class="faq-item-a">
+            <div class="faq-item-a-inner">
+              <p data-i18n="faq.acc2_a">Nos honoraires varient selon la durée et la complexité du voyage organisé. Tout est détaillé de manière transparente dans notre devis. L'appel découverte est 100% gratuit et sans engagement.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item-q" aria-expanded="false">
+            <span class="faq-item-num" aria-hidden="true">03</span>
+            <span class="faq-item-label" data-i18n="faq.acc3_q">Vous faites les réservations à notre place ?</span>
+            <span class="faq-item-icon" aria-hidden="true"><i class="ti ti-plus"></i></span>
+          </button>
+          <div class="faq-item-a">
+            <div class="faq-item-a-inner">
+              <p data-i18n="faq.acc3_a">En tant que travel planners, nous ne sommes pas habilités à faire les réservations à votre place. On vous transmet tous les liens de réservation des prestataires sélectionnés — vous restez libre de choisir et de réserver selon vos préférences.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item-q" aria-expanded="false">
+            <span class="faq-item-num" aria-hidden="true">04</span>
+            <span class="faq-item-label" data-i18n="faq.acc4_q">Dans combien de temps recevons-nous notre devis ?</span>
+            <span class="faq-item-icon" aria-hidden="true"><i class="ti ti-plus"></i></span>
+          </button>
+          <div class="faq-item-a">
+            <div class="faq-item-a-inner">
+              <p data-i18n="faq.acc4_a">Une fois l'appel découverte réalisé, vous recevez votre estimation budgétaire sous quelques jours. Tout dépend de la complexité de votre projet de voyage.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item-q" aria-expanded="false">
+            <span class="faq-item-num" aria-hidden="true">05</span>
+            <span class="faq-item-label" data-i18n="faq.acc5_q">Peut-on vous contacter pendant le séjour ?</span>
+            <span class="faq-item-icon" aria-hidden="true"><i class="ti ti-plus"></i></span>
+          </button>
+          <div class="faq-item-a">
+            <div class="faq-item-a-inner">
+              <p data-i18n="faq.acc5_a">Oui ! On reste disponibles 7j/7 pendant toute la durée de votre séjour pour répondre à vos questions et vous aider en cas de besoin.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item-q" aria-expanded="false">
+            <span class="faq-item-num" aria-hidden="true">06</span>
+            <span class="faq-item-label" data-i18n="faq.acc6_q">Vous travaillez uniquement pour l'île Maurice ?</span>
+            <span class="faq-item-icon" aria-hidden="true"><i class="ti ti-plus"></i></span>
+          </button>
+          <div class="faq-item-a">
+            <div class="faq-item-a-inner">
+              <p data-i18n="faq.acc6_a">Pour l'instant oui — l'île Maurice est notre spécialité et notre terrain de jeu quotidien. C'est ce qui nous permet de vous proposer des expériences vraiment authentiques et des adresses confidentielles que seuls les locaux connaissent.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-bg" aria-hidden="true"></div>
+  <div class="cta-frame" aria-hidden="true"></div>
+  <div class="container cta-inner">
+    <span class="section-eyebrow section-eyebrow--light fade-up" data-i18n="faq.cta_eyebrow">Une dernière question ?</span>
+    <h2 class="cta-title fade-up" data-i18n="faq.cta_title">
+      Prêt(e) à passer à l'étape suivante ?
+    </h2>
+    <p class="cta-text fade-up" data-i18n="faq.cta_text">
+      On a répondu à vos questions — il est temps de construire votre voyage sur mesure.
+    </p>
+    <div class="cta-actions fade-up">
+      <a href="devis.html" class="btn btn-white btn-lg" data-i18n="faq.cta_btn">J'ai encore des questions →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="assets/images/Logo_The_lagoon.png" alt="The Lagoon Travel" class="footer-logo-img" loading="lazy">
+        </div>
+        <p data-i18n="footer.desc">Votre organisateur de voyage sur mesure à l'île Maurice. Des expériences uniques, pensées pour vous.</p>
+      </div>
+      <div class="footer-links fade-up">
+        <h4 class="footer-col-title" data-i18n="footer.links_title">Liens rapides</h4>
+        <ul class="footer-links-list">
+          <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+          <li><a href="concept.html" data-i18n="nav.concept">Le Concept</a></li>
+          <li><a href="prestations.html" data-i18n="nav.prestations">Nos prestations</a></li>
+          <li><a href="realisations.html" data-i18n="nav.realisations">Nos Réalisations</a></li>
+          <li><a href="about.html" data-i18n="nav.about">À propos de nous</a></li>
+          <li><a href="galerie.html" data-i18n="nav.gallery">Galerie</a></li>
+          <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact fade-up">
+        <h4 class="footer-col-title" data-i18n="footer.contact_title">Nous trouver</h4>
+        <div class="footer-contact-item"><i class="ti ti-brand-whatsapp"></i><a href="https://wa.me/23054829958" target="_blank" rel="noopener">WhatsApp : +230 5482 9958</a></div>
+        <div class="footer-contact-item"><i class="ti ti-mail"></i><a href="mailto:thelagoon.mu@gmail.com">thelagoon.mu@gmail.com</a></div>
+        <div class="footer-contact-item"><i class="ti ti-brand-instagram"></i><a href="https://www.instagram.com/thelagoon.travel.mu" target="_blank" rel="noopener">@thelagoon.travel.mu</a></div>
+        <div class="footer-contact-item"><i class="ti ti-brand-facebook"></i><a href="https://facebook.com/thelagoontravel" target="_blank" rel="noopener">The Lagoon Travel</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-i18n="footer.copyright">© 2026 The Lagoon Travel · Tous droits réservés</span>
+    <span>·</span>
+    <span><span data-i18n="footer.heart">Île Maurice</span></span>
+  </div>
+</footer>
+
+<script defer src="assets/js/i18n.js"></script>
+<script defer src="assets/js/main.js"></script>
+<script>
+// FAQ accordéon — un seul item ouvert à la fois
+(function() {
+  const items = document.querySelectorAll('.faq-item');
+  document.querySelectorAll('.faq-item-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      items.forEach(function(other) {
+        other.classList.remove('open');
+        const q = other.querySelector('.faq-item-q');
+        if (q) q.setAttribute('aria-expanded', 'false');
+      });
+      item.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+})();
+</script>
+</body>
+</html>

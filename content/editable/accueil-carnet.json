@@ -1,0 +1,28 @@
+{
+  "fr": {
+    "carnet.label_spots": "Vos adresses coup de cœur et spots secrets",
+    "carnet.eyebrow": "Votre carnet de voyage",
+    "carnet.label_more": "<span class=\"plus-sign\">+</span> plein d'autres surprises",
+    "carnet.label_tips": "Nos conseils et astuces",
+    "carnet.label_stays": "Vos hébergements et transferts",
+    "carnet.cta": "Découvrez nos formules →",
+    "carnet.label_map": "Une carte interactive",
+    "carnet.text": "Quelques jours avant votre départ, vous recevez votre carnet 100% personnalisé : itinéraire, hébergements, bonnes adresses et petites astuces pour voyager l'esprit léger.",
+    "carnet.title": "Un souvenir qui commence avant le départ",
+    "carnet.label_itinerary": "Votre itinéraire jour par jour",
+    "carnet.label_activities": "Vos activités"
+  },
+  "en": {
+    "carnet.label_spots": "Our favourite spots & hidden gems",
+    "carnet.eyebrow": "Your travel journal",
+    "carnet.label_more": "<span class=\"plus-sign\">+</span> plenty more surprises",
+    "carnet.label_tips": "Our tips & tricks",
+    "carnet.label_stays": "Your stays & transfers",
+    "carnet.cta": "Discover our packages →",
+    "carnet.label_map": "An interactive map",
+    "carnet.text": "A few days before you leave, you'll receive your 100% personalised travel journal: itinerary, accommodation, our best addresses and little tips to help you travel with a light mind.",
+    "carnet.title": "A keepsake that starts before you even leave",
+    "carnet.label_itinerary": "Your day-by-day itinerary",
+    "carnet.label_activities": "Your activities"
+  }
+}

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Filet de sécurité de l'affichage : les blocs .fade-* ne sont cachés que si le JS tourne (html.js).
+       Si main.js n'a pas démarré au bout de 1,5 s, on révèle les blocs proches de l'écran (et au défilement). -->
+  <script>
+    document.documentElement.classList.add('js');
+    (function () {
+      var sel = '.fade-up,.fade-in,.fade-left,.fade-right';
+      function reveal() {
+        if (window.__fadeReady) return true;
+        document.querySelectorAll(sel).forEach(function (e) {
+          if (e.getBoundingClientRect().top < innerHeight + 200) e.classList.add('visible');
+        });
+        return false;
+      }
+      setTimeout(function () {
+        if (!reveal()) addEventListener('scroll', reveal, { passive: true });
+      }, 1500);
+    })();
+  </script>
+  <title>Nos prestations — The Lagoon Travel</title>
+  <meta name="description" content="Découvrez nos deux formules pour votre voyage à l'île Maurice : Coup de pouce, une consultation ciblée à 150€, ou Mon Maurice idéal, l'organisation complète de votre séjour à 40€/jour.">
+  <link rel="canonical" href="https://thelagoontravel.com/prestations.html">
+
+  <link rel="stylesheet" href="assets/css/tabler-subset.css?v=1">
+  <link rel="stylesheet" href="assets/css/style.css?v=16">
+  <link rel="stylesheet" href="assets/css/components.css?v=3">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Navigation principale">
+  <div class="nav-container">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navOverlay">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-lang-compact">
+      <button class="lang-btn lang-btn-compact active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+      <span>|</span>
+      <button class="lang-btn lang-btn-compact" data-lang="en" onclick="switchLang('en')">EN</button>
+    </div>
+    <a href="index.html" class="nav-logo" aria-label="Accueil The Lagoon Travel">
+      <div class="logo-wrap">
+        <img src="assets/images/Logo_The_lagoon.png" alt="The Lagoon Travel" class="logo-img" fetchpriority="high">
+      </div>
+    </a>
+    <div class="nav-right">
+      <div class="lang-switcher" role="group" aria-label="Langue">
+        <button class="lang-btn active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      </div>
+      <a href="devis.html" class="btn btn-primary btn-primary-nav btn-sm" data-i18n="nav.cta">Organisons votre voyage !</a>
+    </div>
+  </div>
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Menu principal">
+    <div class="nav-overlay-inner">
+      <button class="menu-close" aria-label="Fermer le menu">
+        <i class="ti ti-x"></i>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+        <li>
+          <button class="nav-menu-btn" type="button" aria-expanded="false">
+            <span data-i18n="nav.concept">Le Concept</span> <i class="ti ti-chevron-down nav-chevron" aria-hidden="true"></i>
+          </button>
+          <ul class="nav-submenu">
+            <li><a href="concept.html" data-i18n="nav.concept_sub">Concept</a></li>
+            <li><a href="prestations.html" data-i18n="nav.prestations">Nos prestations</a></li>
+          </ul>
+        </li>
+        <li><a href="realisations.html" data-i18n="nav.realisations">Nos Réalisations</a></li>
+        <li><a href="about.html" data-i18n="nav.about">À propos de nous</a></li>
+        <li><a href="galerie.html" data-i18n="nav.gallery">Galerie</a></li>
+        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      </ul>
+
+      <div class="nav-overlay-langs lang-switcher" role="group" aria-label="Langue">
+        <button class="lang-btn active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="page-hero page-hero--prestations">
+  <video class="page-hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/galerie-hero-poster.jpg">
+    <source src="assets/videos/galerie-hero.mp4" type="video/mp4">
+  </video>
+  <div class="page-hero-content">
+    <h1 class="page-hero-title fade-up" data-i18n="prestations.hero_title">Nos prestations</h1>
+    <p class="page-hero-subtitle fade-up" data-i18n="prestations.hero_subtitle">Chaque voyage est unique, on s'adapte à votre projet, vos envies et votre budget</p>
+  </div>
+</section>
+
+<!-- ══ BLOC 1 — Nos formules ══ -->
+<section class="concept-block concept-block--white formules-section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow" data-i18n="prestations.formules_eyebrow">Nos formules</span>
+      <h2 class="concept-title concept-title--center" data-i18n="prestations.formules_title">Deux façons de voyager avec nous</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle" data-i18n="prestations.formules_subtitle">Un simple coup de main ou l'organisation complète de votre séjour : à vous de choisir l'accompagnement qui vous ressemble.</p>
+    </div>
+
+    <div class="formules-grid">
+
+      <!-- Formule 1 — Coup de pouce -->
+      <article class="formule formule--light fade-up">
+        <div class="formule-head">
+          <span class="formule-kicker" data-i18n="prestations.formule1_kicker">Consultation ponctuelle</span>
+          <h3 class="formule-name" data-i18n="prestations.formule1_name">Coup de pouce</h3>
+          <p class="formule-price"><span class="formule-price-amount">150€</span><span class="formule-price-unit" data-i18n="prestations.formule1_unit">la consultation</span></p>
+        </div>
+
+        <p class="formule-intro" data-i18n="prestations.formule1_intro">Vous avez déjà commencé à organiser votre voyage à Maurice, mais vous bloquez sur une étape ? On vous donne un coup de main d'expert.</p>
+
+        <div class="formule-focus">
+          <i class="ti ti-bulb"></i>
+          <div>
+            <span class="formule-focus-label" data-i18n="prestations.formule1_focus_label">Des conseils ciblés sur</span>
+            <p class="formule-focus-text" data-i18n="prestations.formule1_focus_text">votre itinéraire, l'organisation, le choix de région pour séjourner, les activités, les bons choix à faire et l'optimisation de votre séjour.</p>
+          </div>
+        </div>
+
+        <div class="formule-cta">
+          <a href="devis.html" class="btn btn-outline" data-i18n="prestations.formule1_cta">Réserver mon appel →</a>
+        </div>
+      </article>
+
+      <!-- Formule 2 — Mon Maurice idéal -->
+      <article class="formule formule--featured fade-up">
+        <span class="formule-badge"><i class="ti ti-sparkles"></i> <span data-i18n="prestations.formule2_badge">Notre spécialité</span></span>
+
+        <div class="formule-head">
+          <span class="formule-kicker" data-i18n="prestations.formule2_kicker">Formule complète</span>
+          <h3 class="formule-name" data-i18n="prestations.formule2_name">Mon Maurice idéal</h3>
+          <p class="formule-price"><span class="formule-price-amount">40€</span><span class="formule-price-unit" data-i18n="prestations.formule2_unit">/ jour</span></p>
+          <p class="formule-price-note" data-i18n="prestations.formule2_note">peu importe le nombre de personnes</p>
+        </div>
+
+        <p class="formule-intro" data-i18n="prestations.formule2_intro">L'organisation complète de votre voyage à Maurice, du premier appel jusqu'à votre retour.</p>
+
+        <div class="formule-groups">
+          <div class="formule-group">
+            <div class="formule-group-head">
+              <i class="ti ti-plane-departure"></i>
+              <h4 data-i18n="prestations.formule2_g1_title">Avant le départ</h4>
+            </div>
+            <ul class="formule-items" data-i18n="prestations.formule2_g1_items">
+              <li>Call découverte</li>
+              <li>Recherche de transports adaptés</li>
+              <li>Suggestions d'hébergement selon votre budget</li>
+              <li>Itinéraire personnalisé (activités, temps libre, rythme...)</li>
+            </ul>
+          </div>
+
+          <div class="formule-group">
+            <div class="formule-group-head">
+              <i class="ti ti-notebook"></i>
+              <h4 data-i18n="prestations.formule2_g2_title">Votre carnet</h4>
+            </div>
+            <ul class="formule-items" data-i18n="prestations.formule2_g2_items">
+              <li>Espace privé regroupant tous les liens de réservation</li>
+              <li>Recommandations d'adresses (restaurants, bars, spots...)</li>
+              <li>Carte interactive des points d'intérêt</li>
+              <li>Carnet de voyage PDF : itinéraire complet, conseils, infos utiles et bonus (playlist, adresses confidentielles, astuces...)</li>
+            </ul>
+          </div>
+
+          <div class="formule-group formule-group--wide">
+            <div class="formule-group-head">
+              <i class="ti ti-brand-whatsapp"></i>
+              <h4 data-i18n="prestations.formule2_g3_title">Pendant le séjour</h4>
+            </div>
+            <p class="formule-group-text" data-i18n="prestations.formule2_g3_text">Assistance WhatsApp tout au long de votre séjour, pour une question ou un imprévu.</p>
+          </div>
+        </div>
+
+        <div class="formule-cta">
+          <a href="devis.html" class="btn btn-primary" data-i18n="prestations.formule2_cta">Réserver mon appel →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ BLOC — Votre carnet de voyage ══ -->
+<section class="concept-block concept-carnet-section">
+  <div class="container">
+    <div class="section-header fade-up" style="text-align:center; max-width:700px; margin:0 auto 40px;">
+      <span class="section-eyebrow" data-i18n="prestations.carnet_eyebrow">Votre carnet de voyage</span>
+      <h2 class="concept-title concept-title--center" data-i18n="prestations.carnet_title">
+        Un souvenir qui commence avant le départ
+      </h2>
+      <div class="divider"></div>
+      <p style="color: rgba(255,255,255,0.75); font-size: 15px;
+                line-height: 1.8; margin-top: 20px;" data-i18n="prestations.carnet_text">
+        Quelques jours avant votre départ, vous recevez votre
+        carnet 100% personnalisé : itinéraire, hébergements,
+        bonnes adresses et petites astuces pour voyager
+        l'esprit léger.
+      </p>
+    </div>
+    <div class="concept-carnet-layout fade-up">
+      <ul class="concept-carnet-labels concept-carnet-labels--left">
+        <li data-i18n="prestations.carnet_label_itinerary">Votre itinéraire jour par jour</li>
+        <li data-i18n="prestations.carnet_label_stays">Vos hébergements et transferts</li>
+        <li data-i18n="prestations.carnet_label_spots">Vos adresses coup de cœur et spots secrets</li>
+        <li data-i18n="prestations.carnet_label_activities">Vos activités</li>
+      </ul>
+      <div class="concept-carnet-image">
+        <img src="assets/images/carnet-mockup.webp"
+             data-i18n-img="carnet-mockup"
+             data-src-fr="assets/images/carnet-mockup.webp"
+             data-src-en="assets/images/carnet-mockup-en.webp"
+             alt="Exemple de carnet de voyage personnalisé The Lagoon Travel"
+             loading="lazy">
+      </div>
+      <ul class="concept-carnet-labels concept-carnet-labels--right">
+        <li data-i18n="prestations.carnet_label_map">Une carte interactive</li>
+        <li data-i18n="prestations.carnet_label_tips">Nos conseils et astuces</li>
+        <li data-i18n="prestations.carnet_label_more">+ plein d'autres surprises</li>
+      </ul>
+    </div>
+    <div class="concept-carnet-cta fade-up">
+      <a href="devis.html" class="btn btn-primary" data-i18n="prestations.carnet_btn">Réserver mon appel →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BLOC 2 — Autres services ══ -->
+<section class="concept-block concept-block--mist">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow" data-i18n="prestations.services_eyebrow">Et aussi</span>
+      <h2 class="concept-title concept-title--center" data-i18n="prestations.services_title">Nos autres services</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="concept-vs-grid">
+      <div class="concept-vs-item fade-up">
+        <i class="ti ti-map-pin-question"></i>
+        <h3 data-i18n="prestations.service1_title">Aide au choix de destination</h3>
+        <p data-i18n="prestations.service1_text">Vous avez du mal à vous décider ? On sélectionne pour vous plusieurs destinations qui correspondent à votre profil voyageur, vos envies et votre budget.</p>
+        <span class="badge badge-blue" data-i18n="prestations.badge_devis">Sur devis</span>
+      </div>
+      <div class="concept-vs-item fade-up">
+        <i class="ti ti-confetti"></i>
+        <h3 data-i18n="prestations.service2_title">Événements spéciaux</h3>
+        <p data-i18n="prestations.service2_text">Pas le temps d'organiser un EVJF, un EVG ou un anniversaire surprise ? On s'occupe de tout : lieu atypique, ambiance sur mesure, détails qui marquent.</p>
+        <span class="badge badge-blue" data-i18n="prestations.badge_devis">Sur devis</span>
+      </div>
+      <div class="concept-vs-item fade-up">
+        <i class="ti ti-compass"></i>
+        <h3 data-i18n="prestations.service3_title">Guide sur mesure</h3>
+        <p data-i18n="prestations.service3_text">Marre de perdre du temps sur des adresses trop touristiques ? Nos guides vous donnent l'essentiel : spots favoris, lieux authentiques et adresses coup de cœur, adaptés à vos goûts.</p>
+        <span class="badge badge-blue" data-i18n="prestations.badge_devis">Sur devis</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA FINAL ══ -->
+<section class="concept-cta">
+  <div class="container" style="text-align:center;">
+    <h2 class="concept-cta-title fade-up" data-i18n="prestations.final_cta_title">Prêt à vivre votre Maurice idéal ?</h2>
+    <a href="devis.html" class="btn concept-cta-btn fade-up" data-i18n="prestations.cta_btn">Construisons mon séjour →</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="assets/images/Logo_The_lagoon.png" alt="The Lagoon Travel" class="footer-logo-img" loading="lazy">
+        </div>
+        <p data-i18n="footer.desc">Votre organisateur de voyage sur mesure à l'île Maurice. Des expériences uniques, pensées pour vous.</p>
+      </div>
+      <div class="footer-links fade-up">
+        <h4 class="footer-col-title" data-i18n="footer.links_title">Liens rapides</h4>
+        <ul class="footer-links-list">
+          <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+          <li><a href="concept.html" data-i18n="nav.concept">Le Concept</a></li>
+          <li><a href="prestations.html" data-i18n="nav.prestations">Nos prestations</a></li>
+          <li><a href="realisations.html" data-i18n="nav.realisations">Nos Réalisations</a></li>
+          <li><a href="about.html" data-i18n="nav.about">À propos de nous</a></li>
+          <li><a href="galerie.html" data-i18n="nav.gallery">Galerie</a></li>
+          <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact fade-up">
+        <h4 class="footer-col-title" data-i18n="footer.contact_title">Nous trouver</h4>
+        <div class="footer-contact-item"><i class="ti ti-brand-whatsapp"></i><a href="https://wa.me/23054829958" target="_blank" rel="noopener">WhatsApp : +230 5482 9958</a></div>
+        <div class="footer-contact-item"><i class="ti ti-mail"></i><a href="mailto:thelagoon.mu@gmail.com">thelagoon.mu@gmail.com</a></div>
+        <div class="footer-contact-item"><i class="ti ti-brand-instagram"></i><a href="https://www.instagram.com/thelagoon.travel.mu" target="_blank" rel="noopener">@thelagoon.travel.mu</a></div>
+        <div class="footer-contact-item"><i class="ti ti-brand-facebook"></i><a href="https://facebook.com/thelagoontravel" target="_blank" rel="noopener">The Lagoon Travel</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-i18n="footer.copyright">© 2026 The Lagoon Travel · Tous droits réservés</span>
+    <span>·</span>
+    <span><span data-i18n="footer.heart">Île Maurice</span></span>
+  </div>
+</footer>
+
+<script defer src="assets/js/i18n.js"></script>
+<script defer src="assets/js/main.js"></script>
+</body>
+</html>

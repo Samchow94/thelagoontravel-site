@@ -1,0 +1,28 @@
+{
+  "fr": {
+    "contact.hours": "Disponibles 7j/7 de 8h à 20h (UTC+4)",
+    "contact.subtitle": "Notre équipe est disponible 7j/7 de 8h à 20h (UTC+4) pour répondre à toutes vos questions.",
+    "contact.cta_text": "Discutez directement avec notre équipe sur WhatsApp, on vous répond en quelques minutes.",
+    "contact.title": "Contactez-nous",
+    "contact.form_title": "Envoyez-nous un message",
+    "contact.cta_eyebrow": "Une réponse rapide",
+    "contact.info_title": "Nos coordonnées",
+    "contact.eyebrow": "Parlons de votre projet",
+    "contact.cta_title": "Une question avant de vous lancer ?",
+    "contact.whatsapp_btn": "Discuter sur WhatsApp",
+    "contact.cta_btn": "C'est décidé, j'y vais →"
+  },
+  "en": {
+    "contact.hours": "Available 7 days a week, 8am–8pm (UTC+4)",
+    "contact.subtitle": "Our team is available 7 days a week from 8am to 8pm (UTC+4) to answer all your questions.",
+    "contact.cta_text": "Chat directly with our team on WhatsApp — we'll reply within minutes.",
+    "contact.title": "Contact Us",
+    "contact.form_title": "Send us a message",
+    "contact.cta_eyebrow": "A quick reply",
+    "contact.info_title": "Our contact details",
+    "contact.eyebrow": "Let's talk about your project",
+    "contact.cta_title": "A question before you get started?",
+    "contact.whatsapp_btn": "Chat on WhatsApp",
+    "contact.cta_btn": "I've decided, let's go →"
+  }
+}

@@ -1,0 +1,513 @@
+# Decap CMS — configuration (voir docs/CMS.md)
+# Les textes sont stockés dans content/editable/*.json (fr et en dans le même fichier).
+# Ne modifiez ce fichier que pour ajouter, retirer ou renommer un champ.
+
+backend:
+  name: github
+  repo: Samchow94/thelagoontravel
+  branch: main
+
+# Test en local : lancer « npx decap-server@3.11.5 » à la racine du projet.
+# Cette option n'est active que sur localhost : sur le site en ligne, la connexion GitHub est utilisée.
+local_backend: true
+
+locale: fr
+publish_mode: simple
+
+# Dossier des médias : volontairement vide et distinct de assets/images, pour que l'onglet « Médias »
+# ne puisse ni lister ni supprimer les images du site. Aucun champ image/fichier n'est déclaré.
+media_folder: admin/media
+
+i18n:
+  structure: single_file
+  locales: [fr, en]
+  default_locale: fr
+
+collections:
+  - name: "accueil"
+    label: "Accueil"
+    i18n:
+      structure: single_file
+      locales: [fr, en]
+      default_locale: fr
+    files:
+      - name: "accueil-banniere"
+        label: "Accueil › Bannière"
+        file: "content/editable/accueil-banniere.json"
+        i18n: true
+        fields:
+          - { label: "Accueil › Bannière › Sur-titre", name: "hero.eyebrow", widget: string, i18n: true }
+          - { label: "Accueil › Bannière › Titre", name: "hero.title", widget: string, i18n: true }
+          - { label: "Accueil › Bannière › Titre (partie en italique)", name: "hero.title_em", widget: string, i18n: true }
+          - { label: "Accueil › Bannière › Sous-titre", name: "hero.subtitle", widget: text, i18n: true }
+          - { label: "Accueil › Bannière › Bouton", name: "hero.cta", widget: string, i18n: true }
+      - name: "accueil-activites"
+        label: "Accueil › Activités"
+        file: "content/editable/accueil-activites.json"
+        i18n: true
+        fields:
+          - { label: "Accueil › Activités › Sur-titre", name: "activities.eyebrow", widget: string, i18n: true }
+          - { label: "Accueil › Activités › Titre", name: "activities.title", widget: string, i18n: true }
+          - { label: "Accueil › Activités › Sous-titre", name: "activities.subtitle", widget: text, i18n: true, hint: "Ne supprimez pas les balises `<strong>` (mise en forme du texte) : gardez-les dans les deux langues." }
+          - { label: "Accueil › Activités › Texte « et plus encore »", name: "activities.more", widget: string, i18n: true }
+          - { label: "Accueil › Activités › Onglet « Mer & Nautisme »", name: "activities.tab_sea", widget: string, i18n: true }
+          - { label: "Accueil › Activités › Onglet « Nature & Randonnée »", name: "activities.tab_nature", widget: string, i18n: true }
+          - { label: "Accueil › Activités › Onglet « Culture & Gastronomie »", name: "activities.tab_culture", widget: string, i18n: true }
+          - { label: "Accueil › Activités › Onglet « Services privés »", name: "activities.tab_events", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Mer & Nautisme 1 › Titre", name: "act.sea1.title", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Mer & Nautisme 1 › Texte", name: "act.sea1.text", widget: text, i18n: true }
+          - { label: "Accueil › Activité › Mer & Nautisme 2 › Titre", name: "act.sea2.title", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Mer & Nautisme 2 › Texte", name: "act.sea2.text", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Mer & Nautisme 3 › Titre", name: "act.sea3.title", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Mer & Nautisme 3 › Texte", name: "act.sea3.text", widget: text, i18n: true }
+          - { label: "Accueil › Activité › Mer & Nautisme 4 › Titre", name: "act.sea4.title", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Mer & Nautisme 4 › Texte", name: "act.sea4.text", widget: text, i18n: true }
+          - { label: "Accueil › Activité › Nature & Randonnée 1 › Titre", name: "act.nat1.title", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Nature & Randonnée 1 › Texte", name: "act.nat1.text", widget: text, i18n: true }
+          - { label: "Accueil › Activité › Nature & Randonnée 2 › Titre", name: "act.nat2.title", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Nature & Randonnée 2 › Texte", name: "act.nat2.text", widget: text, i18n: true }
+          - { label: "Accueil › Activité › Nature & Randonnée 3 › Titre", name: "act.nat3.title", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Nature & Randonnée 3 › Texte", name: "act.nat3.text", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Nature & Randonnée 4 › Titre", name: "act.nat4.title", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Nature & Randonnée 4 › Texte", name: "act.nat4.text", widget: text, i18n: true }
+          - { label: "Accueil › Activité › Culture & Gastronomie 1 › Titre", name: "act.cul1.title", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Culture & Gastronomie 1 › Texte", name: "act.cul1.text", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Culture & Gastronomie 2 › Titre", name: "act.cul2.title", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Culture & Gastronomie 2 › Texte", name: "act.cul2.text", widget: text, i18n: true }
+          - { label: "Accueil › Activité › Culture & Gastronomie 3 › Titre", name: "act.cul3.title", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Culture & Gastronomie 3 › Texte", name: "act.cul3.text", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Culture & Gastronomie 4 › Titre", name: "act.cul4.title", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Culture & Gastronomie 4 › Texte", name: "act.cul4.text", widget: text, i18n: true }
+          - { label: "Accueil › Activité › Services privés 1 › Titre", name: "act.evt1.title", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Services privés 1 › Texte", name: "act.evt1.text", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Services privés 2 › Titre", name: "act.evt2.title", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Services privés 2 › Texte", name: "act.evt2.text", widget: text, i18n: true }
+          - { label: "Accueil › Activité › Services privés 3 › Titre", name: "act.evt3.title", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Services privés 3 › Texte", name: "act.evt3.text", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Services privés 4 › Titre", name: "act.evt4.title", widget: string, i18n: true }
+          - { label: "Accueil › Activité › Services privés 4 › Texte", name: "act.evt4.text", widget: text, i18n: true }
+      - name: "accueil-faq"
+        label: "Accueil › Questions fréquentes"
+        file: "content/editable/accueil-faq.json"
+        i18n: true
+        fields:
+          - { label: "Accueil › Questions fréquentes › Titre", name: "faq.title", widget: string, i18n: true }
+          - { label: "Accueil › Questions fréquentes › Sous-titre", name: "faq.subtitle", widget: text, i18n: true }
+          - { label: "Accueil › Questions fréquentes › Introduction", name: "faq.intro", widget: string, i18n: true }
+          - { label: "Accueil › Questions fréquentes › Question 1", name: "faq.q1", widget: string, i18n: true }
+          - { label: "Accueil › Questions fréquentes › Réponse 1", name: "faq.a1", widget: text, i18n: true }
+          - { label: "Accueil › Questions fréquentes › Question 2", name: "faq.q2", widget: string, i18n: true }
+          - { label: "Accueil › Questions fréquentes › Réponse 2", name: "faq.a2", widget: text, i18n: true }
+          - { label: "Accueil › Questions fréquentes › Question 3", name: "faq.q3", widget: string, i18n: true }
+          - { label: "Accueil › Questions fréquentes › Réponse 3", name: "faq.a3", widget: text, i18n: true }
+          - { label: "Accueil › Questions fréquentes › Question 4", name: "faq.q4", widget: string, i18n: true }
+          - { label: "Accueil › Questions fréquentes › Réponse 4", name: "faq.a4", widget: text, i18n: true }
+      - name: "accueil-comment-ca-marche"
+        label: "Accueil › Comment ça marche"
+        file: "content/editable/accueil-comment-ca-marche.json"
+        i18n: true
+        fields:
+          - { label: "Accueil › Comment ça marche › Sous-titre", name: "ccm.subtitle", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Étape 1 › Titre", name: "ccm.s1.title", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Étape 1 › Texte", name: "ccm.s1.text", widget: text, i18n: true }
+          - { label: "Accueil › Comment ça marche › Étape 2 › Titre", name: "ccm.s2.title", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Étape 2 › Texte", name: "ccm.s2.text", widget: text, i18n: true }
+          - { label: "Accueil › Comment ça marche › Étape 3 › Titre", name: "ccm.s3.title", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Étape 3 › Texte", name: "ccm.s3.text", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Étape 4 › Titre", name: "ccm.s4.title", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Étape 4 › Texte", name: "ccm.s4.text", widget: text, i18n: true }
+          - { label: "Accueil › Comment ça marche › Étape 5 › Titre", name: "ccm.s5.title", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Étape 5 › Texte", name: "ccm.s5.text", widget: text, i18n: true }
+          - { label: "Accueil › Comment ça marche › Étape 6 › Titre", name: "ccm.s6.title", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Étape 6 › Texte", name: "ccm.s6.text", widget: text, i18n: true }
+          - { label: "Accueil › Comment ça marche › Bouton", name: "ccm.cta", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Accroche", name: "ccm.tagline", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Schéma › Cartouche", name: "ccm.svg.cartouche", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Schéma › Lieu", name: "ccm.svg.location", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Schéma › Étape 1 › Titre", name: "ccm.svg.s1.title", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Schéma › Étape 1 › Légende", name: "ccm.svg.s1.sub", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Schéma › Étape 2 › Titre", name: "ccm.svg.s2.title", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Schéma › Étape 2 › Légende", name: "ccm.svg.s2.sub", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Schéma › Étape 3 › Titre", name: "ccm.svg.s3.title", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Schéma › Étape 3 › Légende", name: "ccm.svg.s3.sub", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Schéma › Étape 4 › Titre", name: "ccm.svg.s4.title", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Schéma › Étape 4 › Légende", name: "ccm.svg.s4.sub", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Schéma › Étape 5 › Titre", name: "ccm.svg.s5.title", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Schéma › Étape 5 › Légende", name: "ccm.svg.s5.sub", widget: string, i18n: true, hint: "Les codes comme `&nbsp;` (espace insécable) ou `&laquo;` (guillemet) sont normaux : ne les supprimez pas." }
+          - { label: "Accueil › Comment ça marche › Schéma › Étape 6 › Titre", name: "ccm.svg.s6.title", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Schéma › Étape 6 › Légende", name: "ccm.svg.s6.sub", widget: string, i18n: true }
+          - { label: "Accueil › Comment ça marche › Titre", name: "ccm.title", widget: string, i18n: true, hint: "Ne supprimez pas les balises `<em>` (mise en forme du texte) : gardez-les dans les deux langues." }
+          - { label: "Accueil › Comment ça marche › Sur-titre", name: "ccm.eyebrow", widget: string, i18n: true }
+      - name: "accueil-carnet"
+        label: "Accueil › Carnet de voyage"
+        file: "content/editable/accueil-carnet.json"
+        i18n: true
+        fields:
+          - { label: "Accueil › Carnet de voyage › Sur-titre", name: "carnet.eyebrow", widget: string, i18n: true }
+          - { label: "Accueil › Carnet de voyage › Titre", name: "carnet.title", widget: string, i18n: true }
+          - { label: "Accueil › Carnet de voyage › Texte", name: "carnet.text", widget: text, i18n: true }
+          - { label: "Accueil › Carnet de voyage › Bouton", name: "carnet.cta", widget: string, i18n: true }
+          - { label: "Accueil › Carnet de voyage › Libellé › Itinéraire", name: "carnet.label_itinerary", widget: string, i18n: true }
+          - { label: "Accueil › Carnet de voyage › Libellé › Hébergements et transferts", name: "carnet.label_stays", widget: string, i18n: true }
+          - { label: "Accueil › Carnet de voyage › Libellé › Adresses coup de cœur", name: "carnet.label_spots", widget: string, i18n: true }
+          - { label: "Accueil › Carnet de voyage › Libellé › Activités", name: "carnet.label_activities", widget: string, i18n: true }
+          - { label: "Accueil › Carnet de voyage › Libellé › Carte interactive", name: "carnet.label_map", widget: string, i18n: true }
+          - { label: "Accueil › Carnet de voyage › Libellé › Conseils et astuces", name: "carnet.label_tips", widget: string, i18n: true }
+          - { label: "Accueil › Carnet de voyage › Libellé › Et plus encore", name: "carnet.label_more", widget: string, i18n: true, hint: "Ne supprimez pas les balises `<span>` (mise en forme du texte) : gardez-les dans les deux langues." }
+      - name: "accueil-reassurance"
+        label: "Accueil › Pourquoi nous choisir"
+        file: "content/editable/accueil-reassurance.json"
+        i18n: true
+        fields:
+          - { label: "Accueil › Pourquoi nous choisir › Titre", name: "reassurance.title", widget: string, i18n: true }
+          - { label: "Accueil › Pourquoi nous choisir › Sous-titre", name: "reassurance.subtitle", widget: string, i18n: true }
+          - { label: "Accueil › Pourquoi nous choisir › Expertise locale › Titre", name: "reassurance.local_title", widget: string, i18n: true }
+          - { label: "Accueil › Pourquoi nous choisir › Expertise locale › Texte", name: "reassurance.local_text", widget: text, i18n: true }
+          - { label: "Accueil › Pourquoi nous choisir › 100% personnalisé › Titre", name: "reassurance.custom_title", widget: string, i18n: true }
+          - { label: "Accueil › Pourquoi nous choisir › 100% personnalisé › Texte", name: "reassurance.custom_text", widget: text, i18n: true }
+          - { label: "Accueil › Pourquoi nous choisir › Gain de temps › Titre", name: "reassurance.time_title", widget: string, i18n: true }
+          - { label: "Accueil › Pourquoi nous choisir › Gain de temps › Texte", name: "reassurance.time_text", widget: text, i18n: true }
+          - { label: "Accueil › Pourquoi nous choisir › Suivi 7j/7 › Titre", name: "reassurance.support_title", widget: string, i18n: true }
+          - { label: "Accueil › Pourquoi nous choisir › Suivi 7j/7 › Texte", name: "reassurance.support_text", widget: text, i18n: true }
+          - { label: "Accueil › Pourquoi nous choisir › Bouton", name: "reassurance.cta", widget: string, i18n: true }
+      - name: "accueil-histoire"
+        label: "Accueil › Notre histoire"
+        file: "content/editable/accueil-histoire.json"
+        i18n: true
+        fields:
+          - { label: "Accueil › Notre histoire › Sur-titre", name: "who.eyebrow", widget: string, i18n: true }
+          - { label: "Accueil › Présentation de l'île Maurice › Titre", name: "home.histoire_title", widget: string, i18n: true, hint: "Ne supprimez pas les balises `<em>` (mise en forme du texte) : gardez-les dans les deux langues." }
+          - { label: "Accueil › Présentation de l'île Maurice › Texte", name: "home.histoire_text", widget: text, i18n: true }
+          - { label: "Accueil › Présentation de l'île Maurice › Badge", name: "home.histoire_badge", widget: string, i18n: true, hint: "Ne supprimez pas les balises `<br>`, `<strong>` (mise en forme du texte) : gardez-les dans les deux langues." }
+          - { label: "Accueil › Présentation de l'île Maurice › Bouton", name: "home.histoire_cta", widget: string, i18n: true }
+      - name: "accueil-cta"
+        label: "Accueil › Appel à l'action"
+        file: "content/editable/accueil-cta.json"
+        i18n: true
+        fields:
+          - { label: "Accueil › Appel à l'action › Titre", name: "cta.title", widget: string, i18n: true }
+          - { label: "Accueil › Appel à l'action › Sur-titre", name: "cta.eyebrow", widget: string, i18n: true }
+          - { label: "Accueil › Appel à l'action › Texte", name: "cta.text", widget: string, i18n: true }
+          - { label: "Accueil › Appel à l'action › Bouton", name: "cta.btn", widget: string, i18n: true }
+  - name: "a-propos"
+    label: "À propos"
+    i18n:
+      structure: single_file
+      locales: [fr, en]
+      default_locale: fr
+    files:
+      - name: "a-propos"
+        label: "Textes de la page À propos"
+        file: "content/editable/a-propos.json"
+        i18n: true
+        fields:
+          - { label: "À propos › Bannière › Titre", name: "about.hero_title", widget: string, i18n: true }
+          - { label: "À propos › Bannière › Sous-titre", name: "about.hero_subtitle", widget: string, i18n: true }
+          - { label: "À propos › Appel à l'action › Titre", name: "about.cta_title", widget: string, i18n: true }
+          - { label: "À propos › Notre histoire › Sur-titre", name: "about.histoire_eyebrow", widget: string, i18n: true }
+          - { label: "À propos › Notre histoire › Titre", name: "about.histoire_title", widget: string, i18n: true }
+          - { label: "À propos › Notre histoire › Texte", name: "about.histoire_text", widget: text, i18n: true }
+          - { label: "À propos › Nos racines › Sur-titre", name: "about.racines_eyebrow", widget: string, i18n: true }
+          - { label: "À propos › Nos racines › Titre", name: "about.racines_title", widget: string, i18n: true, hint: "Ne supprimez pas les balises `<em>` (mise en forme du texte) : gardez-les dans les deux langues." }
+          - { label: "À propos › Nos racines › Texte 1", name: "about.racines_text1", widget: text, i18n: true, hint: "Ne supprimez pas les balises `<em>` (mise en forme du texte) : gardez-les dans les deux langues." }
+          - { label: "À propos › Nos racines › Texte 2", name: "about.racines_text2", widget: text, i18n: true }
+          - { label: "À propos › Perle de l'océan Indien › Sur-titre", name: "about.perle_eyebrow", widget: string, i18n: true }
+          - { label: "À propos › Perle de l'océan Indien › Titre", name: "about.perle_title", widget: string, i18n: true, hint: "Les codes comme `&nbsp;` (espace insécable) ou `&laquo;` (guillemet) sont normaux : ne les supprimez pas." }
+          - { label: "À propos › Perle de l'océan Indien › Texte 1", name: "about.perle_text1", widget: text, i18n: true }
+          - { label: "À propos › Perle de l'océan Indien › Texte 2", name: "about.perle_text2", widget: text, i18n: true }
+          - { label: "À propos › Photo polaroïd 1", name: "about.polaroid1", widget: string, i18n: true }
+          - { label: "À propos › Photo polaroïd 2", name: "about.polaroid2", widget: string, i18n: true }
+          - { label: "À propos › Photo polaroïd 3", name: "about.polaroid3", widget: string, i18n: true }
+          - { label: "À propos › Nos valeurs › Sur-titre", name: "about.valeurs_eyebrow", widget: string, i18n: true }
+          - { label: "À propos › Nos valeurs › Titre", name: "about.valeurs_title", widget: string, i18n: true }
+          - { label: "À propos › Nos valeurs › Citation", name: "about.valeurs_quote", widget: text, i18n: true, hint: "Les codes comme `&nbsp;` (espace insécable) ou `&laquo;` (guillemet) sont normaux : ne les supprimez pas." }
+          - { label: "À propos › Valeur 1 › Titre", name: "about.val1_title", widget: string, i18n: true }
+          - { label: "À propos › Valeur 1 › Texte", name: "about.val1_text", widget: text, i18n: true }
+          - { label: "À propos › Valeur 2 › Titre", name: "about.val2_title", widget: string, i18n: true }
+          - { label: "À propos › Valeur 2 › Texte", name: "about.val2_text", widget: text, i18n: true }
+          - { label: "À propos › Valeur 3 › Titre", name: "about.val3_title", widget: string, i18n: true }
+          - { label: "À propos › Valeur 3 › Texte", name: "about.val3_text", widget: text, i18n: true }
+          - { label: "À propos › Valeur 4 › Titre", name: "about.val4_title", widget: string, i18n: true }
+          - { label: "À propos › Valeur 4 › Texte", name: "about.val4_text", widget: string, i18n: true }
+          - { label: "À propos › Appel à l'action › Sur-titre", name: "about.cta_eyebrow", widget: string, i18n: true }
+          - { label: "À propos › Appel à l'action › Texte", name: "about.cta_text", widget: string, i18n: true }
+          - { label: "À propos › Appel à l'action › Bouton", name: "about.cta_btn", widget: string, i18n: true }
+  - name: "concept"
+    label: "Concept"
+    i18n:
+      structure: single_file
+      locales: [fr, en]
+      default_locale: fr
+    files:
+      - name: "concept"
+        label: "Textes de la page Concept"
+        file: "content/editable/concept.json"
+        i18n: true
+        fields:
+          - { label: "Concept › Avantages › Citation", name: "concept.benefits_quote", widget: text, i18n: true, hint: "Les codes comme `&nbsp;` (espace insécable) ou `&laquo;` (guillemet) sont normaux : ne les supprimez pas." }
+          - { label: "Concept › Appel à l'action › Bouton", name: "concept.cta_btn", widget: string, i18n: true }
+          - { label: "Concept › Bannière › Sur-titre", name: "concept.hero_eyebrow", widget: string, i18n: true }
+          - { label: "Concept › Bannière › Titre", name: "concept.hero_title", widget: string, i18n: true }
+          - { label: "Concept › Bannière › Sous-titre", name: "concept.hero_subtitle", widget: string, i18n: true }
+          - { label: "Concept › Le problème › Sur-titre", name: "concept.problem_eyebrow", widget: string, i18n: true }
+          - { label: "Concept › Le problème › Titre", name: "concept.problem_title", widget: string, i18n: true, hint: "Ne supprimez pas les balises `<em>` (mise en forme du texte) : gardez-les dans les deux langues." }
+          - { label: "Concept › Le problème › Chapeau", name: "concept.problem_lead", widget: text, i18n: true }
+          - { label: "Concept › Difficulté 1 › Titre", name: "concept.chaos1_title", widget: string, i18n: true }
+          - { label: "Concept › Difficulté 1 › Texte", name: "concept.chaos1_text", widget: string, i18n: true }
+          - { label: "Concept › Difficulté 2 › Titre", name: "concept.chaos2_title", widget: string, i18n: true }
+          - { label: "Concept › Difficulté 2 › Texte", name: "concept.chaos2_text", widget: string, i18n: true }
+          - { label: "Concept › Difficulté 3 › Titre", name: "concept.chaos3_title", widget: string, i18n: true }
+          - { label: "Concept › Difficulté 3 › Texte", name: "concept.chaos3_text", widget: string, i18n: true }
+          - { label: "Concept › Difficulté 4 › Titre", name: "concept.chaos4_title", widget: string, i18n: true }
+          - { label: "Concept › Difficulté 4 › Texte", name: "concept.chaos4_text", widget: string, i18n: true }
+          - { label: "Concept › Carnet de voyage › Sur-titre", name: "concept.carnet_eyebrow", widget: string, i18n: true }
+          - { label: "Concept › Carnet de voyage › Texte 1", name: "concept.carnet_text1", widget: text, i18n: true }
+          - { label: "Concept › Carnet de voyage › Texte 2", name: "concept.carnet_text2", widget: text, i18n: true }
+          - { label: "Concept › Carnet de voyage › Bouton", name: "concept.carnet_btn", widget: string, i18n: true }
+          - { label: "Concept › Notre rôle › Sur-titre", name: "concept.role_eyebrow", widget: string, i18n: true }
+          - { label: "Concept › Notre rôle › Titre", name: "concept.role_title", widget: string, i18n: true }
+          - { label: "Concept › Notre rôle › Chapeau", name: "concept.role_lead", widget: text, i18n: true, hint: "Ne supprimez pas les balises `<em>` (mise en forme du texte) : gardez-les dans les deux langues." }
+          - { label: "Concept › Notre rôle › Chiffre 1", name: "concept.role_stat1", widget: string, i18n: true }
+          - { label: "Concept › Notre rôle › Chiffre 2", name: "concept.role_stat2", widget: string, i18n: true }
+          - { label: "Concept › Notre rôle › Chiffre 3", name: "concept.role_stat3", widget: string, i18n: true }
+          - { label: "Concept › Comparaison ChatGPT › Sur-titre", name: "concept.chatgpt_eyebrow", widget: string, i18n: true }
+          - { label: "Concept › Comparaison ChatGPT › Titre", name: "concept.chatgpt_title", widget: string, i18n: true, hint: "Les codes comme `&nbsp;` (espace insécable) ou `&laquo;` (guillemet) sont normaux : ne les supprimez pas." }
+          - { label: "Concept › Comparaison ChatGPT › Question du voyageur › Message", name: "concept.chatgpt_user_msg", widget: string, i18n: true }
+          - { label: "Concept › Comparaison ChatGPT › Notre réponse › Message 1", name: "concept.chatgpt_us_msg1", widget: text, i18n: true, hint: "Ne supprimez pas les balises `<strong>` (mise en forme du texte) : gardez-les dans les deux langues. Les codes comme `&nbsp;` (espace insécable) ou `&laquo;` (guillemet) sont normaux : ne les supprimez pas." }
+          - { label: "Concept › Comparaison ChatGPT › Notre réponse › Message 2", name: "concept.chatgpt_us_msg2", widget: text, i18n: true, hint: "Ne supprimez pas les balises `<strong>` (mise en forme du texte) : gardez-les dans les deux langues." }
+          - { label: "Concept › Comparaison ChatGPT › Comparaison › Libellé", name: "concept.chatgpt_vs_label", widget: string, i18n: true, hint: "Les codes comme `&nbsp;` (espace insécable) ou `&laquo;` (guillemet) sont normaux : ne les supprimez pas." }
+          - { label: "Concept › Comparaison 1 › Titre", name: "concept.vs1_title", widget: string, i18n: true }
+          - { label: "Concept › Comparaison 1 › Texte", name: "concept.vs1_text", widget: text, i18n: true }
+          - { label: "Concept › Comparaison 2 › Titre", name: "concept.vs2_title", widget: string, i18n: true }
+          - { label: "Concept › Comparaison 2 › Texte", name: "concept.vs2_text", widget: string, i18n: true }
+          - { label: "Concept › Comparaison 3 › Titre", name: "concept.vs3_title", widget: string, i18n: true }
+          - { label: "Concept › Comparaison 3 › Texte", name: "concept.vs3_text", widget: string, i18n: true }
+          - { label: "Concept › Avantages › Sur-titre", name: "concept.benefits_eyebrow", widget: string, i18n: true }
+          - { label: "Concept › Avantages › Titre", name: "concept.benefits_title", widget: string, i18n: true }
+          - { label: "Concept › Avantage 1 › Titre", name: "concept.benefit1_title", widget: string, i18n: true }
+          - { label: "Concept › Avantage 2 › Titre", name: "concept.benefit2_title", widget: string, i18n: true }
+          - { label: "Concept › Avantage 3 › Titre", name: "concept.benefit3_title", widget: string, i18n: true }
+          - { label: "Concept › Avantage 4 › Titre", name: "concept.benefit4_title", widget: string, i18n: true }
+          - { label: "Concept › Appel final › Titre", name: "concept.final_cta_title", widget: string, i18n: true }
+  - name: "prestations"
+    label: "Prestations"
+    i18n:
+      structure: single_file
+      locales: [fr, en]
+      default_locale: fr
+    files:
+      - name: "prestations"
+        label: "Textes de la page Prestations"
+        file: "content/editable/prestations.json"
+        i18n: true
+        fields:
+          - { label: "Prestations › Appel à l'action › Bouton", name: "prestations.cta_btn", widget: string, i18n: true }
+          - { label: "Prestations › Bannière › Titre", name: "prestations.hero_title", widget: string, i18n: true }
+          - { label: "Prestations › Bannière › Sous-titre", name: "prestations.hero_subtitle", widget: string, i18n: true }
+          - { label: "Prestations › Carnet de voyage › Sur-titre", name: "prestations.carnet_eyebrow", widget: string, i18n: true }
+          - { label: "Prestations › Carnet de voyage › Titre", name: "prestations.carnet_title", widget: string, i18n: true }
+          - { label: "Prestations › Carnet de voyage › Texte", name: "prestations.carnet_text", widget: text, i18n: true }
+          - { label: "Prestations › Carnet de voyage › Bouton", name: "prestations.carnet_btn", widget: string, i18n: true }
+          - { label: "Prestations › Carnet de voyage › Libellé › Itinéraire", name: "prestations.carnet_label_itinerary", widget: string, i18n: true }
+          - { label: "Prestations › Carnet de voyage › Libellé › Hébergements et transferts", name: "prestations.carnet_label_stays", widget: string, i18n: true }
+          - { label: "Prestations › Carnet de voyage › Libellé › Adresses coup de cœur", name: "prestations.carnet_label_spots", widget: string, i18n: true }
+          - { label: "Prestations › Carnet de voyage › Libellé › Activités", name: "prestations.carnet_label_activities", widget: string, i18n: true }
+          - { label: "Prestations › Carnet de voyage › Libellé › Carte interactive", name: "prestations.carnet_label_map", widget: string, i18n: true }
+          - { label: "Prestations › Carnet de voyage › Libellé › Conseils et astuces", name: "prestations.carnet_label_tips", widget: string, i18n: true }
+          - { label: "Prestations › Carnet de voyage › Libellé › Et plus encore", name: "prestations.carnet_label_more", widget: string, i18n: true, hint: "Ne supprimez pas les balises `<span>` (mise en forme du texte) : gardez-les dans les deux langues." }
+          - { label: "Prestations › Services › Sur-titre", name: "prestations.services_eyebrow", widget: string, i18n: true }
+          - { label: "Prestations › Services › Titre", name: "prestations.services_title", widget: string, i18n: true }
+          - { label: "Prestations › Autre service 1 › Titre", name: "prestations.service1_title", widget: string, i18n: true }
+          - { label: "Prestations › Autre service 1 › Texte", name: "prestations.service1_text", widget: text, i18n: true }
+          - { label: "Prestations › Autre service 2 › Titre", name: "prestations.service2_title", widget: string, i18n: true }
+          - { label: "Prestations › Autre service 2 › Texte", name: "prestations.service2_text", widget: text, i18n: true }
+          - { label: "Prestations › Autre service 3 › Titre", name: "prestations.service3_title", widget: string, i18n: true }
+          - { label: "Prestations › Autre service 3 › Texte", name: "prestations.service3_text", widget: text, i18n: true }
+          - { label: "Prestations › Appel final › Titre", name: "prestations.final_cta_title", widget: string, i18n: true }
+  - name: "realisations"
+    label: "Réalisations"
+    i18n:
+      structure: single_file
+      locales: [fr, en]
+      default_locale: fr
+    files:
+      - name: "realisations"
+        label: "Textes de la page Réalisations"
+        file: "content/editable/realisations.json"
+        i18n: true
+        fields:
+          - { label: "Réalisations › Témoignages › Sous-titre", name: "realisations.testi_subtitle", widget: string, i18n: true }
+          - { label: "Réalisations › Témoignage 1 › Texte", name: "realisations.testi1_text", widget: text, i18n: true }
+          - { label: "Réalisations › Témoignage 2 › Texte", name: "realisations.testi2_text", widget: text, i18n: true }
+          - { label: "Réalisations › Témoignage 3 › Texte", name: "realisations.testi3_text", widget: text, i18n: true }
+          - { label: "Réalisations › Témoignage 4 › Texte", name: "realisations.testi4_text", widget: text, i18n: true }
+          - { label: "Réalisations › Témoignage 5 › Texte", name: "realisations.testi5_text", widget: text, i18n: true }
+          - { label: "Réalisations › Témoignage 6 › Texte", name: "realisations.testi6_text", widget: text, i18n: true }
+          - { label: "Réalisations › Appel à l'action › Sur-titre", name: "realisations.cta_eyebrow", widget: string, i18n: true }
+          - { label: "Réalisations › Appel à l'action › Titre", name: "realisations.cta_title", widget: string, i18n: true }
+          - { label: "Réalisations › Appel à l'action › Texte", name: "realisations.cta_text", widget: string, i18n: true }
+          - { label: "Réalisations › Appel à l'action › Bouton", name: "realisations.cta_btn", widget: string, i18n: true }
+          - { label: "Réalisations › Bannière › Sur-titre", name: "realisations.hero_eyebrow", widget: string, i18n: true }
+          - { label: "Réalisations › Bannière › Titre", name: "realisations.hero_title", widget: string, i18n: true }
+          - { label: "Réalisations › Bannière › Sous-titre", name: "realisations.hero_subtitle", widget: string, i18n: true }
+          - { label: "Réalisations › Voyages › Sur-titre", name: "realisations.voyages_eyebrow", widget: string, i18n: true }
+          - { label: "Réalisations › Voyages › Titre", name: "realisations.voyages_title", widget: string, i18n: true }
+          - { label: "Réalisations › Voyages › Sous-titre", name: "realisations.voyages_subtitle", widget: text, i18n: true }
+          - { label: "Réalisations › Voyages › Bouton", name: "realisations.voyages_btn", widget: string, i18n: true }
+          - { label: "Réalisations › Témoignages › Titre", name: "realisations.testi_title", widget: string, i18n: true }
+  - name: "faq"
+    label: "FAQ"
+    i18n:
+      structure: single_file
+      locales: [fr, en]
+      default_locale: fr
+    files:
+      - name: "faq"
+        label: "Textes de la page FAQ"
+        file: "content/editable/faq.json"
+        i18n: true
+        fields:
+          - { label: "FAQ › Appel à l'action › Sur-titre", name: "faq.cta_eyebrow", widget: string, i18n: true }
+          - { label: "FAQ › Appel à l'action › Titre", name: "faq.cta_title", widget: string, i18n: true }
+          - { label: "FAQ › Appel à l'action › Texte", name: "faq.cta_text", widget: string, i18n: true }
+          - { label: "FAQ › Appel à l'action › Bouton", name: "faq.cta_btn", widget: string, i18n: true }
+          - { label: "FAQ › Bannière › Sur-titre", name: "faq.hero_eyebrow", widget: string, i18n: true }
+          - { label: "FAQ › Bannière › Titre", name: "faq.hero_title", widget: string, i18n: true }
+          - { label: "FAQ › Bannière › Sous-titre", name: "faq.hero_subtitle", widget: string, i18n: true }
+          - { label: "FAQ › Colonne latérale › Titre", name: "faq.side_title", widget: string, i18n: true, hint: "Ne supprimez pas les balises `<em>` (mise en forme du texte) : gardez-les dans les deux langues." }
+          - { label: "FAQ › Colonne latérale › Texte", name: "faq.side_text", widget: text, i18n: true }
+          - { label: "FAQ › Question 1 › Question", name: "faq.acc1_q", widget: string, i18n: true }
+          - { label: "FAQ › Question 1 › Réponse", name: "faq.acc1_a", widget: text, i18n: true }
+          - { label: "FAQ › Question 2 › Question", name: "faq.acc2_q", widget: string, i18n: true }
+          - { label: "FAQ › Question 2 › Réponse", name: "faq.acc2_a", widget: text, i18n: true }
+          - { label: "FAQ › Question 3 › Question", name: "faq.acc3_q", widget: string, i18n: true }
+          - { label: "FAQ › Question 3 › Réponse", name: "faq.acc3_a", widget: text, i18n: true }
+          - { label: "FAQ › Question 4 › Question", name: "faq.acc4_q", widget: string, i18n: true }
+          - { label: "FAQ › Question 4 › Réponse", name: "faq.acc4_a", widget: text, i18n: true }
+          - { label: "FAQ › Question 5 › Question", name: "faq.acc5_q", widget: string, i18n: true }
+          - { label: "FAQ › Question 5 › Réponse", name: "faq.acc5_a", widget: text, i18n: true }
+          - { label: "FAQ › Question 6 › Question", name: "faq.acc6_q", widget: string, i18n: true }
+          - { label: "FAQ › Question 6 › Réponse", name: "faq.acc6_a", widget: text, i18n: true }
+  - name: "blog"
+    label: "Blog"
+    i18n:
+      structure: single_file
+      locales: [fr, en]
+      default_locale: fr
+    files:
+      - name: "blog"
+        label: "Textes de la page Blog"
+        file: "content/editable/blog.json"
+        i18n: true
+        fields:
+          - { label: "Blog › Sur-titre", name: "blog.eyebrow", widget: string, i18n: true }
+          - { label: "Blog › Titre", name: "blog.title", widget: string, i18n: true }
+          - { label: "Blog › Sous-titre", name: "blog.subtitle", widget: string, i18n: true }
+          - { label: "Blog › Filtre « Tous »", name: "blog.filter_all", widget: string, i18n: true }
+          - { label: "Blog › Filtre « Conseils »", name: "blog.filter_tips", widget: string, i18n: true }
+          - { label: "Blog › Filtre « Destinations »", name: "blog.filter_destinations", widget: string, i18n: true }
+          - { label: "Blog › Filtre « Inspirations »", name: "blog.filter_inspirations", widget: string, i18n: true }
+          - { label: "Blog › Filtre « Actualités »", name: "blog.filter_news", widget: string, i18n: true }
+          - { label: "Blog › Cartes d'articles › Bouton « Lire la suite »", name: "blog.read_more", widget: string, i18n: true }
+          - { label: "Blog › Appel à l'action › Sur-titre", name: "blog.cta_eyebrow", widget: string, i18n: true }
+          - { label: "Blog › Appel à l'action › Titre", name: "blog.cta_title", widget: string, i18n: true }
+          - { label: "Blog › Appel à l'action › Texte", name: "blog.cta_text", widget: string, i18n: true }
+          - { label: "Blog › Appel à l'action › Bouton", name: "blog.cta_btn", widget: string, i18n: true }
+          - { label: "Blog › Article 1 › Date", name: "blog.card1_date", widget: string, i18n: true }
+          - { label: "Blog › Article 1 › Titre", name: "blog.card1_title", widget: string, i18n: true }
+          - { label: "Blog › Article 1 › Extrait", name: "blog.card1_excerpt", widget: text, i18n: true }
+          - { label: "Blog › Article 2 › Date", name: "blog.card2_date", widget: string, i18n: true }
+          - { label: "Blog › Article 2 › Titre", name: "blog.card2_title", widget: string, i18n: true }
+          - { label: "Blog › Article 2 › Extrait", name: "blog.card2_excerpt", widget: text, i18n: true }
+          - { label: "Blog › Article 3 › Date", name: "blog.card3_date", widget: string, i18n: true }
+          - { label: "Blog › Article 3 › Titre", name: "blog.card3_title", widget: string, i18n: true }
+          - { label: "Blog › Article 3 › Extrait", name: "blog.card3_excerpt", widget: text, i18n: true }
+  - name: "contact"
+    label: "Contact"
+    i18n:
+      structure: single_file
+      locales: [fr, en]
+      default_locale: fr
+    files:
+      - name: "contact"
+        label: "Textes de la page Contact"
+        file: "content/editable/contact.json"
+        i18n: true
+        fields:
+          - { label: "Contact › Sur-titre", name: "contact.eyebrow", widget: string, i18n: true }
+          - { label: "Contact › Titre", name: "contact.title", widget: string, i18n: true }
+          - { label: "Contact › Sous-titre", name: "contact.subtitle", widget: string, i18n: true }
+          - { label: "Contact › Horaires d'ouverture", name: "contact.hours", widget: string, i18n: true }
+          - { label: "Contact › Appel à l'action › Sur-titre", name: "contact.cta_eyebrow", widget: string, i18n: true }
+          - { label: "Contact › Appel à l'action › Titre", name: "contact.cta_title", widget: string, i18n: true }
+          - { label: "Contact › Appel à l'action › Texte", name: "contact.cta_text", widget: string, i18n: true }
+          - { label: "Contact › Appel à l'action › Bouton", name: "contact.cta_btn", widget: string, i18n: true }
+          - { label: "Contact › Formulaire › Titre", name: "contact.form_title", widget: string, i18n: true }
+          - { label: "Contact › Coordonnées › Titre", name: "contact.info_title", widget: string, i18n: true }
+          - { label: "Contact › WhatsApp › Bouton", name: "contact.whatsapp_btn", widget: string, i18n: true }
+  - name: "devis"
+    label: "Demande de devis"
+    i18n:
+      structure: single_file
+      locales: [fr, en]
+      default_locale: fr
+    files:
+      - name: "devis"
+        label: "Textes de la page Demande de devis"
+        file: "content/editable/devis.json"
+        i18n: true
+        fields:
+          - { label: "Demande de devis › Sur-titre", name: "devis.eyebrow", widget: string, i18n: true }
+          - { label: "Demande de devis › Titre", name: "devis.title", widget: string, i18n: true }
+          - { label: "Demande de devis › Sous-titre", name: "devis.subtitle", widget: string, i18n: true }
+          - { label: "Demande de devis › Étape 1 › Titre", name: "devis.step1_title", widget: string, i18n: true }
+          - { label: "Demande de devis › Étape 1 › Sous-titre", name: "devis.step1_sub", widget: string, i18n: true }
+          - { label: "Demande de devis › Étape 3 › Titre", name: "devis.step3_title", widget: string, i18n: true }
+          - { label: "Demande de devis › Étape 3 › Sous-titre", name: "devis.step3_sub", widget: string, i18n: true }
+          - { label: "Demande de devis › Étape 4 › Titre", name: "devis.step4_title", widget: string, i18n: true }
+          - { label: "Demande de devis › Étape 4 › Sous-titre", name: "devis.step4_sub", widget: string, i18n: true }
+          - { label: "Demande de devis › Étape 5 › Titre", name: "devis.step5_title", widget: string, i18n: true }
+          - { label: "Demande de devis › Étape 5 › Sous-titre", name: "devis.step5_sub", widget: string, i18n: true }
+          - { label: "Demande de devis › Calendly › Titre", name: "devis.calendly_title", widget: string, i18n: true }
+          - { label: "Demande de devis › Calendly › Texte", name: "devis.calendly_text", widget: string, i18n: true }
+          - { label: "Demande de devis › Appel à l'action › Sur-titre", name: "devis.cta_eyebrow", widget: string, i18n: true }
+          - { label: "Demande de devis › Appel à l'action › Titre", name: "devis.cta_title", widget: string, i18n: true }
+          - { label: "Demande de devis › Appel à l'action › Texte", name: "devis.cta_text", widget: string, i18n: true }
+          - { label: "Demande de devis › Appel à l'action › Bouton", name: "devis.cta_btn", widget: string, i18n: true }
+  - name: "galerie"
+    label: "Galerie"
+    i18n:
+      structure: single_file
+      locales: [fr, en]
+      default_locale: fr
+    files:
+      - name: "galerie"
+        label: "Textes de la page Galerie"
+        file: "content/editable/galerie.json"
+        i18n: true
+        fields:
+          - { label: "Galerie › Sur-titre", name: "gallery.eyebrow", widget: string, i18n: true }
+          - { label: "Galerie › Titre", name: "gallery.title", widget: string, i18n: true }
+          - { label: "Galerie › Sous-titre", name: "gallery.subtitle", widget: string, i18n: true }
+          - { label: "Galerie › Lien Instagram › Texte", name: "gallery.instagram", widget: string, i18n: true }
+          - { label: "Galerie › Appel à l'action › Sur-titre", name: "galerie.cta_eyebrow", widget: string, i18n: true }
+          - { label: "Galerie › Appel à l'action › Titre", name: "galerie.cta_title", widget: string, i18n: true }
+          - { label: "Galerie › Appel à l'action › Texte", name: "galerie.cta_text", widget: string, i18n: true }
+          - { label: "Galerie › Appel à l'action › Bouton", name: "galerie.cta_btn", widget: string, i18n: true }
+  - name: "pied-de-page"
+    label: "Pied de page"
+    i18n:
+      structure: single_file
+      locales: [fr, en]
+      default_locale: fr
+    files:
+      - name: "pied-de-page"
+        label: "Textes de la page Pied de page"
+        file: "content/editable/pied-de-page.json"
+        i18n: true
+        fields:
+          - { label: "Pied de page › Description", name: "footer.desc", widget: text, i18n: true }
+          - { label: "Pied de page › Liens › Titre", name: "footer.links_title", widget: string, i18n: true }
+          - { label: "Pied de page › Contact › Titre", name: "footer.contact_title", widget: string, i18n: true }
+          - { label: "Pied de page › Mention de droits", name: "footer.copyright", widget: string, i18n: true }
+          - { label: "Pied de page › Signature", name: "footer.heart", widget: string, i18n: true }

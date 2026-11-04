@@ -1,0 +1,61 @@
+/*!
+ * Sous-ensemble de Tabler Icons 3.49.0 (webfont) — 54 icônes utilisées par le site.
+ * Tabler Icons © Paweł Kuna, licence MIT : assets/fonts/LICENSES/LICENSE-tabler-icons.txt
+ * Fichier généré par scripts/build-icons.js — ne pas modifier à la main (voir docs/PERFORMANCE.md).
+ */
+@font-face{font-family:"tabler-icons";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/tabler-icons-subset.woff2") format("woff2");unicode-range:U+EA1F,U+EA4F,U+EA51,U+EA53,U+EA5E,U+EA5F,U+EA60,U+EA61,U+EA70,U+EA79,U+EA88,U+EA99,U+EABE,U+EADE,U+EAE2,U+EAE5,U+EAE8,U+EAFD,U+EB04,U+EB0A,U+EB0B,U+EB17,U+EB1E,U+EB22,U+EB2E,U+EB41,U+EB47,U+EB4D,U+EB55,U+EB65,U+EB90,U+EB96,U+EB9A,U+EBA8,U+EBCE,U+EBF2,U+EC10,U+EC1A,U+EC20,U+EC74,U+EC83,U+ED12,U+EE46,U+EEB1,U+EEFF,U+EF08,U+EF97,U+EFF6,U+F0F3,U+F21D,U+F353,U+F6D7,U+F957,U+FA21}
+.ti{font-family:"tabler-icons" !important;speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.ti-arrow-right:before{content:"\ea1f"}
+.ti-brand-facebook:before{content:"\ec1a"}
+.ti-brand-instagram:before{content:"\ec20"}
+.ti-brand-whatsapp:before{content:"\ec74"}
+.ti-building:before{content:"\ea4f"}
+.ti-bulb:before{content:"\ea51"}
+.ti-calendar:before{content:"\ea53"}
+.ti-check:before{content:"\ea5e"}
+.ti-chef-hat:before{content:"\f21d"}
+.ti-chevron-down:before{content:"\ea5f"}
+.ti-chevron-left:before{content:"\ea60"}
+.ti-chevron-right:before{content:"\ea61"}
+.ti-clock:before{content:"\ea70"}
+.ti-compass:before{content:"\ea79"}
+.ti-confetti:before{content:"\ee46"}
+.ti-crown:before{content:"\ed12"}
+.ti-database:before{content:"\ea88"}
+.ti-diamond:before{content:"\eb65"}
+.ti-ear:before{content:"\ebce"}
+.ti-external-link:before{content:"\ea99"}
+.ti-flower:before{content:"\eff6"}
+.ti-headset:before{content:"\eb90"}
+.ti-heart:before{content:"\eabe"}
+.ti-heart-handshake:before{content:"\f0f3"}
+.ti-home-heart:before{content:"\f353"}
+.ti-link:before{content:"\eade"}
+.ti-lock:before{content:"\eae2"}
+.ti-logout:before{content:"\eba8"}
+.ti-mail:before{content:"\eae5"}
+.ti-map-pin:before{content:"\eae8"}
+.ti-map-pin-question:before{content:"\f957"}
+.ti-massage:before{content:"\eeb1"}
+.ti-mountain:before{content:"\ef97"}
+.ti-news:before{content:"\eafd"}
+.ti-notebook:before{content:"\eb96"}
+.ti-pencil:before{content:"\eb04"}
+.ti-photo:before{content:"\eb0a"}
+.ti-plane-departure:before{content:"\eb9a"}
+.ti-plus:before{content:"\eb0b"}
+.ti-route:before{content:"\eb17"}
+.ti-sailboat:before{content:"\ec83"}
+.ti-send:before{content:"\eb1e"}
+.ti-shield-check:before{content:"\eb22"}
+.ti-sparkles:before{content:"\f6d7"}
+.ti-star:before{content:"\eb2e"}
+.ti-tools-kitchen-2:before{content:"\eeff"}
+.ti-trash:before{content:"\eb41"}
+.ti-trees:before{content:"\ec10"}
+.ti-upload:before{content:"\eb47"}
+.ti-user:before{content:"\eb4d"}
+.ti-users:before{content:"\ebf2"}
+.ti-users-group:before{content:"\fa21"}
+.ti-writing:before{content:"\ef08"}
+.ti-x:before{content:"\eb55"}

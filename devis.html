@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Filet de sécurité de l'affichage : les blocs .fade-* ne sont cachés que si le JS tourne (html.js).
+       Si main.js n'a pas démarré au bout de 1,5 s, on révèle les blocs proches de l'écran (et au défilement). -->
+  <script>
+    document.documentElement.classList.add('js');
+    (function () {
+      var sel = '.fade-up,.fade-in,.fade-left,.fade-right';
+      function reveal() {
+        if (window.__fadeReady) return true;
+        document.querySelectorAll(sel).forEach(function (e) {
+          if (e.getBoundingClientRect().top < innerHeight + 200) e.classList.add('visible');
+        });
+        return false;
+      }
+      setTimeout(function () {
+        if (!reveal()) addEventListener('scroll', reveal, { passive: true });
+      }, 1500);
+    })();
+  </script>
+  <title>Demande de devis — The Lagoon Travel</title>
+  <meta name="description" content="Créez votre voyage sur mesure à l'île Maurice. Préparez votre voyage, sans engagement, en 5 étapes simples.">
+  <link rel="canonical" href="https://thelagoontravel.com/devis.html">
+
+  <link rel="stylesheet" href="assets/css/tabler-subset.css?v=1">
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
+  <link rel="stylesheet" href="assets/css/components.css?v=3">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-lang-compact">
+      <button class="lang-btn lang-btn-compact active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+      <span>|</span>
+      <button class="lang-btn lang-btn-compact" data-lang="en" onclick="switchLang('en')">EN</button>
+    </div>
+    <a href="index.html" class="nav-logo">
+      <div class="logo-wrap">
+        <img src="assets/images/Logo_The_lagoon.png" alt="The Lagoon Travel" class="logo-img" fetchpriority="high">
+      </div>
+    </a>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      </div>
+      <a href="devis.html" class="btn btn-primary btn-primary-nav btn-sm" data-i18n="nav.cta">Préparez votre voyage</a>
+    </div>
+  </div>
+  <div class="nav-overlay" id="navOverlay">
+    <div class="nav-overlay-inner">
+      <button class="menu-close" aria-label="Fermer le menu">
+        <i class="ti ti-x"></i>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+        <li>
+          <button class="nav-menu-btn" type="button" aria-expanded="false">
+            <span data-i18n="nav.concept">Le Concept</span> <i class="ti ti-chevron-down nav-chevron" aria-hidden="true"></i>
+          </button>
+          <ul class="nav-submenu">
+            <li><a href="concept.html" data-i18n="nav.concept_sub">Concept</a></li>
+            <li><a href="prestations.html" data-i18n="nav.prestations">Nos prestations</a></li>
+          </ul>
+        </li>
+        <li><a href="realisations.html" data-i18n="nav.realisations">Nos Réalisations</a></li>
+        <li><a href="about.html" data-i18n="nav.about">À propos de nous</a></li>
+        <li><a href="galerie.html" data-i18n="nav.gallery">Galerie</a></li>
+        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      </ul>
+
+      <div class="nav-overlay-langs lang-switcher" role="group" aria-label="Langue">
+        <button class="lang-btn active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <video class="page-hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/galerie-hero-poster.jpg">
+    <source src="assets/videos/galerie-hero.mp4" type="video/mp4">
+  </video>
+  <div class="page-hero-content">
+    <span class="page-hero-eyebrow" data-i18n="devis.eyebrow">Gratuit & sans engagement</span>
+    <h1 class="page-hero-title fade-up" data-i18n="devis.title">Créons votre voyage ensemble</h1>
+    <p class="page-hero-subtitle fade-up" data-i18n="devis.subtitle">
+      Répondez à quelques questions et votre conseiller vous contacte sous 24h.
+    </p>
+  </div>
+</section>
+
+<!-- Stepper -->
+<section class="section stepper-section" style="padding:72px 0;">
+  <div class="container">
+    <div class="stepper">
+
+      <!-- Step Indicators -->
+      <div class="step-indicators" id="stepIndicators">
+        <div class="step-track"><div class="step-progress" id="stepProgress" style="width:0%"></div></div>
+
+        <div class="step-indicator-item active">
+          <div class="step-dot">1</div>
+          <span class="step-label" data-i18n="devis.step1_title">Qui êtes-vous ?</span>
+        </div>
+        <div class="step-indicator-item">
+          <div class="step-dot">2</div>
+          <span class="step-label" data-i18n="devis.step2_title">Quelle formule vous intéresse ?</span>
+        </div>
+        <div class="step-indicator-item">
+          <div class="step-dot">3</div>
+          <span class="step-label" data-i18n="devis.step3_title">Votre voyage</span>
+        </div>
+        <div class="step-indicator-item">
+          <div class="step-dot">4</div>
+          <span class="step-label" data-i18n="devis.step4_title">Vos envies</span>
+        </div>
+        <div class="step-indicator-item">
+          <div class="step-dot">5</div>
+          <span class="step-label" data-i18n="devis.step5_title">Organisons un appel</span>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form id="devisForm" novalidate>
+
+        <!-- ── ÉTAPE 1 ────────────────── -->
+        <div class="step-panel active" id="step-panel-1">
+          <h2 class="step-title" data-i18n="devis.step1_title">Qui êtes-vous ?</h2>
+          <p class="step-subtitle" data-i18n="devis.step1_sub">Quelques informations pour personnaliser votre expérience.</p>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="firstname" data-i18n="devis.label_firstname">Prénom</label>
+              <input type="text" id="firstname" name="firstname" class="form-input" autocomplete="given-name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lastname" data-i18n="devis.label_lastname">Nom</label>
+              <input type="text" id="lastname" name="lastname" class="form-input" autocomplete="family-name" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email" data-i18n="devis.label_email">Email</label>
+            <input type="email" id="email" name="email" class="form-input" autocomplete="email" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="phone" data-i18n="devis.label_phone">WhatsApp (avec indicatif)</label>
+            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+33 6 12 34 56 78" autocomplete="tel" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="prefLang" data-i18n="devis.label_lang">Langue préférée</label>
+            <select id="prefLang" name="prefLang" class="form-select">
+              <option value="fr">Français</option>
+              <option value="en">English</option>
+              <option value="ru">Русский</option>
+            </select>
+          </div>
+
+          <div class="step-nav">
+            <span></span>
+            <button type="button" class="btn btn-primary btn-next" data-i18n="devis.btn_next">Continuer</button>
+          </div>
+        </div>
+
+        <!-- ── ÉTAPE 2 ────────────────── -->
+        <div class="step-panel" id="step-panel-2">
+          <h2 class="step-title" data-i18n="devis.step2_title">Quelle formule vous intéresse ?</h2>
+          <p class="step-subtitle" data-i18n="devis.step2_sub">Choisissez l'accompagnement qui vous correspond le mieux.</p>
+
+          <div class="form-group">
+            <div class="formule-cards" data-group="formule">
+
+              <div class="formule-card">
+                <input type="radio" name="formule" id="formule-coup-de-pouce" value="Coup de pouce">
+                <label class="formule-card-label" for="formule-coup-de-pouce">
+                  <span class="formule-card-check" aria-hidden="true"><i class="ti ti-check"></i></span>
+                  <h3 class="formule-card-name" data-i18n="devis.formule1_name">Coup de pouce</h3>
+                  <p class="formule-card-price" data-i18n="devis.formule1_price">150€</p>
+                  <p class="formule-card-text" data-i18n="devis.formule1_text">Vous avez déjà avancé dans l'organisation mais vous bloquez sur un point précis&nbsp;? On vous donne un coup de main d'expert.</p>
+                </label>
+              </div>
+
+              <div class="formule-card formule-card--featured">
+                <input type="radio" name="formule" id="formule-maurice-ideal" value="Mon Maurice idéal">
+                <label class="formule-card-label" for="formule-maurice-ideal">
+                  <span class="formule-card-badge"><i class="ti ti-sparkles"></i> <span data-i18n="devis.formule2_badge">Notre spécialité</span></span>
+                  <span class="formule-card-check" aria-hidden="true"><i class="ti ti-check"></i></span>
+                  <h3 class="formule-card-name" data-i18n="devis.formule2_name">Mon Maurice idéal</h3>
+                  <p class="formule-card-price" data-i18n="devis.formule2_price">40€/jour, peu importe le nombre de personnes</p>
+                  <p class="formule-card-text" data-i18n="devis.formule2_text">L'organisation complète de votre voyage, du premier appel jusqu'à votre retour.</p>
+                </label>
+              </div>
+
+              <div class="formule-card">
+                <input type="radio" name="formule" id="formule-sais-pas" value="Je ne sais pas encore">
+                <label class="formule-card-label" for="formule-sais-pas">
+                  <span class="formule-card-check" aria-hidden="true"><i class="ti ti-check"></i></span>
+                  <h3 class="formule-card-name" data-i18n="devis.formule3_name">Je ne sais pas encore</h3>
+                  <p class="formule-card-text" data-i18n="devis.formule3_text">Discutons-en ensemble lors de l'appel découverte.</p>
+                </label>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="step-nav">
+            <button type="button" class="btn btn-outline btn-prev" data-i18n="devis.btn_prev">Retour</button>
+            <button type="button" class="btn btn-primary btn-next" data-i18n="devis.btn_next">Continuer</button>
+          </div>
+        </div>
+
+        <!-- ── ÉTAPE 3 ────────────────── -->
+        <div class="step-panel" id="step-panel-3">
+          <h2 class="step-title" data-i18n="devis.step3_title">Votre voyage</h2>
+          <p class="step-subtitle" data-i18n="devis.step3_sub">Parlez-nous de votre projet.</p>
+
+          <div class="form-group">
+            <label class="form-label" data-i18n="devis.label_triptype">Type de voyage</label>
+            <div class="checkbox-cards" data-group="tripType">
+              <div class="checkbox-card">
+                <input type="checkbox" name="tripType" id="type-noce" value="Voyage de noce">
+                <label class="checkbox-card-label" for="type-noce">
+                  <i class="ti ti-heart"></i><span data-i18n="devis.trip_noce">Voyage de noce</span>
+                </label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" name="tripType" id="type-couple" value="En couple">
+                <label class="checkbox-card-label" for="type-couple">
+                  <i class="ti ti-users"></i><span data-i18n="devis.trip_couple">En couple</span>
+                </label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" name="tripType" id="type-famille" value="En famille">
+                <label class="checkbox-card-label" for="type-famille">
+                  <i class="ti ti-home-heart"></i><span data-i18n="devis.trip_famille">En famille</span>
+                </label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" name="tripType" id="type-evg" value="EVG">
+                <label class="checkbox-card-label" for="type-evg">
+                  <i class="ti ti-confetti"></i><span data-i18n="devis.trip_evg">EVG</span>
+                </label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" name="tripType" id="type-evjf" value="EVJF">
+                <label class="checkbox-card-label" for="type-evjf">
+                  <i class="ti ti-confetti"></i><span data-i18n="devis.trip_evjf">EVJF</span>
+                </label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" name="tripType" id="type-groupe" value="Groupe">
+                <label class="checkbox-card-label" for="type-groupe">
+                  <i class="ti ti-users-group"></i><span data-i18n="devis.trip_groupe">Groupe</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="adults" data-i18n="devis.label_adults">Adultes</label>
+              <input type="number" id="adults" name="adults" class="form-input" min="1" max="50" value="2">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="children" data-i18n="devis.label_children">Enfants</label>
+              <input type="number" id="children" name="children" class="form-input" min="0" max="20" value="0">
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="arrival" data-i18n="devis.label_arrival">Date d'arrivée</label>
+              <input type="date" id="arrival" name="arrival" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="departure" data-i18n="devis.label_departure">Date de départ</label>
+              <input type="date" id="departure" name="departure" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" data-i18n="devis.label_flexible">Dates flexibles ?</label>
+            <select id="flexible" name="flexible" class="form-select">
+              <option value="non" data-i18n="devis.select_flexible_no">Non</option>
+              <option value="oui" data-i18n="devis.select_flexible_yes">Oui</option>
+              <option value="quelques-jours" data-i18n="devis.select_flexible_some">+/- quelques jours</option>
+            </select>
+          </div>
+
+          <div class="step-nav">
+            <button type="button" class="btn btn-outline btn-prev" data-i18n="devis.btn_prev">Retour</button>
+            <button type="button" class="btn btn-primary btn-next" data-i18n="devis.btn_next">Continuer</button>
+          </div>
+        </div>
+
+        <!-- ── ÉTAPE 4 ────────────────── -->
+        <div class="step-panel" id="step-panel-4">
+          <h2 class="step-title" data-i18n="devis.step4_title">Vos envies</h2>
+          <p class="step-subtitle" data-i18n="devis.step4_sub">Définissons ensemble votre voyage idéal.</p>
+
+          <div class="form-group">
+            <label class="form-label" data-i18n="devis.label_activities">Activités souhaitées</label>
+            <div class="checkbox-cards checkbox-cards--activities" data-group="activities">
+              <div class="checkbox-card">
+                <input type="checkbox" name="activities" id="act-mer" value="Mer & Nautisme">
+                <label class="checkbox-card-label" for="act-mer"><i class="ti ti-sailboat"></i><span data-i18n="devis.act_mer">Mer & Nautisme</span></label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" name="activities" id="act-nature" value="Nature & Randonnée">
+                <label class="checkbox-card-label" for="act-nature"><i class="ti ti-trees"></i><span data-i18n="devis.act_nature">Nature & Randonnée</span></label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" name="activities" id="act-culture" value="Culture">
+                <label class="checkbox-card-label" for="act-culture"><i class="ti ti-building"></i><span data-i18n="devis.act_culture">Culture</span></label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" name="activities" id="act-soirees" value="Soirées & Événements">
+                <label class="checkbox-card-label" for="act-soirees"><i class="ti ti-confetti"></i><span data-i18n="devis.act_soirees">Soirées & Événements</span></label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" name="activities" id="act-spa" value="Spa & Bien-être">
+                <label class="checkbox-card-label" for="act-spa"><i class="ti ti-massage"></i><span data-i18n="devis.act_spa">Spa & Bien-être</span></label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" name="activities" id="act-gastro" value="Gastronomie">
+                <label class="checkbox-card-label" for="act-gastro"><i class="ti ti-chef-hat"></i><span data-i18n="devis.act_gastro">Gastronomie</span></label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" name="activities" id="act-aventure" value="Aventure">
+                <label class="checkbox-card-label" for="act-aventure"><i class="ti ti-mountain"></i><span data-i18n="devis.act_aventure">Aventure</span></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" data-i18n="devis.label_comfort">Niveau de confort</label>
+            <div class="checkbox-cards">
+              <div class="checkbox-card">
+                <input type="radio" name="comfort" id="comfort-1" value="Confortable">
+                <label class="checkbox-card-label" for="comfort-1"><i class="ti ti-star"></i><span data-i18n="devis.comfort_1">Confortable</span></label>
+              </div>
+              <div class="checkbox-card">
+                <input type="radio" name="comfort" id="comfort-2" value="Premium">
+                <label class="checkbox-card-label" for="comfort-2"><i class="ti ti-diamond"></i><span data-i18n="devis.comfort_2">Premium</span></label>
+              </div>
+              <div class="checkbox-card">
+                <input type="radio" name="comfort" id="comfort-3" value="Luxe">
+                <label class="checkbox-card-label" for="comfort-3"><i class="ti ti-crown"></i><span data-i18n="devis.comfort_3">Luxe</span></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" data-i18n="devis.label_budget">Budget par personne</label>
+            <select id="budget" name="budget" class="form-select">
+              <option value="" data-i18n="devis.select_budget_placeholder">Sélectionner...</option>
+              <option value="1000-2000" data-i18n="devis.budget_1">1 000 – 2 000 €</option>
+              <option value="2000-4000" data-i18n="devis.budget_2">2 000 – 4 000 €</option>
+              <option value="4000-7000" data-i18n="devis.budget_3">4 000 – 7 000 €</option>
+              <option value="7000+" data-i18n="devis.budget_4">7 000 € +</option>
+              <option value="discuss" data-i18n="devis.budget_discuss">Je préfère en discuter</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="notes" data-i18n="devis.label_notes">Occasions spéciales, envies particulières...</label>
+            <textarea id="notes" name="notes" class="form-textarea" placeholder="Anniversaire, allergie, activité particulière..."></textarea>
+          </div>
+
+          <div class="step-nav">
+            <button type="button" class="btn btn-outline btn-prev" data-i18n="devis.btn_prev">Retour</button>
+            <button type="button" class="btn btn-primary btn-next" data-i18n="devis.btn_next">Continuer</button>
+          </div>
+        </div>
+
+        <!-- ── ÉTAPE 5 ────────────────── -->
+        <div class="step-panel" id="step-panel-5">
+          <h2 class="step-title" data-i18n="devis.step5_title">Organisons un appel</h2>
+          <p class="step-subtitle" data-i18n="devis.step5_sub">Votre conseiller The Lagoon Travel revient vers vous sous 24h.</p>
+
+          <!-- Calendly -->
+          <div style="margin-bottom:40px;">
+            <h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:300;margin-bottom:8px;" data-i18n="devis.calendly_title">
+              Réservez un appel vidéo
+            </h3>
+            <p style="font-size:0.9rem;color:var(--text-mid);margin-bottom:20px;" data-i18n="devis.calendly_text">
+              Pour aller plus vite, choisissez un créneau directement dans notre agenda.
+            </p>
+            <!-- ⚠️ Remplacer par votre vrai lien Calendly -->
+            <div class="calendly-wrapper">
+              <div class="calendly-inline-widget"
+                   data-url="https://calendly.com/thelagoon-travel/consultation"
+                   style="min-width:280px;height:580px;">
+              </div>
+            </div>
+            <!-- ⚠️ Script Calendly CDN -->
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          </div>
+
+          <!-- Alternative contact preference -->
+          <div style="padding:24px;background:var(--mist);border-radius:var(--radius-card);">
+            <p style="font-size:0.88rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-mid);margin-bottom:16px;" data-i18n="devis.or_prefer">
+              Ou je préfère être contacté par :
+            </p>
+            <div style="display:flex;gap:16px;flex-wrap:wrap;">
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem;">
+                <input type="radio" name="contactPref" value="email" checked style="accent-color:var(--blue-logo);">
+                <i class="ti ti-mail" style="color:var(--blue-logo);"></i> Email
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem;">
+                <input type="radio" name="contactPref" value="whatsapp" style="accent-color:var(--blue-logo);">
+                <i class="ti ti-brand-whatsapp" style="color:#25D366;"></i> WhatsApp
+              </label>
+            </div>
+          </div>
+
+          <div class="step-nav">
+            <button type="button" class="btn btn-outline btn-prev" data-i18n="devis.btn_prev">Retour</button>
+            <button type="submit" class="btn btn-primary btn-lg" data-i18n="devis.btn_submit">Envoyer ma demande</button>
+          </div>
+        </div>
+
+        <!-- Champ piège anti-spam : invisible pour les humains -->
+        <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+          <input type="text" id="devisWebsite" name="website_url" tabindex="-1" autocomplete="off">
+        </div>
+
+      </form>
+
+      <!-- Success Message -->
+      <div class="success-message" id="devisSuccess">
+        <div class="success-icon"><i class="ti ti-check"></i></div>
+        <h2 class="success-title" data-i18n="devis.success_title">Demande envoyée !</h2>
+        <p class="success-text" data-i18n="devis.success_text">
+          Votre conseiller The Lagoon Travel vous contacte sous 24h. Un email de confirmation vous a été envoyé.
+        </p>
+        <div style="margin-top:32px;">
+          <a href="index.html" class="btn btn-primary">Retour à l'accueil</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-bg" aria-hidden="true"></div>
+  <div class="cta-frame" aria-hidden="true"></div>
+  <div class="container cta-inner">
+    <span class="section-eyebrow section-eyebrow--light fade-up" data-i18n="devis.cta_eyebrow">Vous préférez en parler ?</span>
+    <h2 class="cta-title fade-up" data-i18n="devis.cta_title">
+      Une préférence pour un échange direct ?
+    </h2>
+    <p class="cta-text fade-up" data-i18n="devis.cta_text">
+      Si vous préférez qu'on en discute de vive voix, on est disponibles sur WhatsApp 7j/7.
+    </p>
+    <div class="cta-actions fade-up">
+      <a href="https://wa.me/23054829958" target="_blank" rel="noopener" class="btn btn-white btn-lg" data-i18n="devis.cta_btn">Discuter sur WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="assets/images/Logo_The_lagoon.png" alt="The Lagoon Travel" loading="lazy">
+        </div>
+        <p class="footer-desc" data-i18n="footer.desc">Votre agence de voyages haut de gamme à l'île Maurice.</p>
+      </div>
+      <div class="footer-links">
+        <h4 class="footer-col-title" data-i18n="footer.links_title">Liens rapides</h4>
+        <ul class="footer-links-list">
+          <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+          <li><a href="concept.html" data-i18n="nav.concept">Le Concept</a></li>
+          <li><a href="prestations.html" data-i18n="nav.prestations">Nos prestations</a></li>
+          <li><a href="realisations.html" data-i18n="nav.realisations">Nos Réalisations</a></li>
+          <li><a href="about.html" data-i18n="nav.about">À propos de nous</a></li>
+          <li><a href="galerie.html" data-i18n="nav.gallery">Galerie</a></li>
+          <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4 class="footer-col-title" data-i18n="footer.contact_title">Nous trouver</h4>
+        <div class="footer-contact-item"><i class="ti ti-brand-whatsapp"></i><a href="https://wa.me/23054829958" target="_blank" rel="noopener">+230 5482 9958</a></div>
+        <div class="footer-contact-item"><i class="ti ti-mail"></i><a href="mailto:thelagoon.mu@gmail.com">thelagoon.mu@gmail.com</a></div>
+        <div class="footer-contact-item"><i class="ti ti-brand-instagram"></i><a href="https://www.instagram.com/thelagoon.travel.mu" target="_blank" rel="noopener">@thelagoon.travel.mu</a></div>
+        <div class="footer-contact-item"><i class="ti ti-brand-facebook"></i><a href="https://facebook.com/thelagoontravel" target="_blank" rel="noopener">The Lagoon Travel</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-i18n="footer.copyright">© 2026 The Lagoon Travel · Tous droits réservés</span>
+    <span>·</span>
+    <span><span data-i18n="footer.heart">Île Maurice</span></span>
+  </div>
+</footer>
+
+<script async src="https://cdn.jsdelivr.net/npm/@emailjs/browser/dist/email.min.js" onload="emailjs.init('PUBLIC_KEY')"></script>
+<script defer src="assets/js/i18n.js"></script>
+<script defer src="assets/js/main.js"></script>
+<script defer src="assets/js/devis.js"></script></body>
+</html>

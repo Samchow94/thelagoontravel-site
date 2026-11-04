@@ -1,0 +1,40 @@
+{
+  "fr": {
+    "devis.calendly_title": "Réservez un appel vidéo",
+    "devis.calendly_text": "Pour aller plus vite, choisissez un créneau directement dans notre agenda.",
+    "devis.subtitle": "Répondez à quelques questions et votre conseiller vous contacte sous 24h.",
+    "devis.title": "Créons votre voyage ensemble",
+    "devis.cta_eyebrow": "Vous préférez en parler ?",
+    "devis.cta_text": "Si vous préférez qu'on en discute de vive voix, on est disponibles sur WhatsApp 7j/7.",
+    "devis.step1_title": "Qui êtes-vous ?",
+    "devis.step3_title": "Votre voyage",
+    "devis.step4_title": "Vos envies",
+    "devis.step5_title": "Organisons un appel",
+    "devis.step1_sub": "Quelques informations pour personnaliser votre expérience.",
+    "devis.step3_sub": "Parlez-nous de votre projet.",
+    "devis.cta_title": "Une préférence pour un échange direct ?",
+    "devis.eyebrow": "Gratuit & sans engagement",
+    "devis.step4_sub": "Définissons ensemble votre voyage idéal.",
+    "devis.step5_sub": "Votre conseiller revient vers vous sous 24h.",
+    "devis.cta_btn": "Discuter sur WhatsApp"
+  },
+  "en": {
+    "devis.calendly_title": "Book a video call",
+    "devis.calendly_text": "For a faster response, choose a time slot directly in our calendar.",
+    "devis.subtitle": "Answer a few questions and your advisor will contact you within 24h.",
+    "devis.title": "Let's create your trip together",
+    "devis.cta_eyebrow": "Prefer to talk it through?",
+    "devis.cta_text": "If you'd rather talk it through live, we're available on WhatsApp 7 days a week.",
+    "devis.step1_title": "Who are you?",
+    "devis.step3_title": "Your trip",
+    "devis.step4_title": "Your wishes",
+    "devis.step5_title": "Schedule a call",
+    "devis.step1_sub": "A few details to personalise your experience.",
+    "devis.step3_sub": "Tell us about your project.",
+    "devis.cta_title": "Prefer a direct conversation?",
+    "devis.eyebrow": "Free & no obligation",
+    "devis.step4_sub": "Let's define your ideal holiday together.",
+    "devis.step5_sub": "Your advisor will get back to you within 24h.",
+    "devis.cta_btn": "Chat on WhatsApp"
+  }
+}

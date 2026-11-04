@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Filet de sécurité de l'affichage : les blocs .fade-* ne sont cachés que si le JS tourne (html.js).
+       Si main.js n'a pas démarré au bout de 1,5 s, on révèle les blocs proches de l'écran (et au défilement). -->
+  <script>
+    document.documentElement.classList.add('js');
+    (function () {
+      var sel = '.fade-up,.fade-in,.fade-left,.fade-right';
+      function reveal() {
+        if (window.__fadeReady) return true;
+        document.querySelectorAll(sel).forEach(function (e) {
+          if (e.getBoundingClientRect().top < innerHeight + 200) e.classList.add('visible');
+        });
+        return false;
+      }
+      setTimeout(function () {
+        if (!reveal()) addEventListener('scroll', reveal, { passive: true });
+      }, 1500);
+    })();
+  </script>
+  <title>Qui sommes-nous — The Lagoon Travel</title>
+  <meta name="description" content="Découvrez Maël et Tom, deux frères franco-mauriciens fondateurs de The Lagoon Travel, votre agence de voyages sur mesure à l'île Maurice.">
+  <link rel="canonical" href="https://thelagoontravel.com/about.html">
+
+  <link rel="stylesheet" href="assets/css/tabler-subset.css?v=1">
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
+  <link rel="stylesheet" href="assets/css/components.css?v=3">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Navigation principale">
+  <div class="nav-container">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navOverlay">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-lang-compact">
+      <button class="lang-btn lang-btn-compact active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+      <span>|</span>
+      <button class="lang-btn lang-btn-compact" data-lang="en" onclick="switchLang('en')">EN</button>
+    </div>
+    <a href="index.html" class="nav-logo" aria-label="Accueil The Lagoon Travel">
+      <div class="logo-wrap">
+        <img src="assets/images/Logo_The_lagoon.png" alt="The Lagoon Travel" class="logo-img" fetchpriority="high">
+      </div>
+    </a>
+    <div class="nav-right">
+      <div class="lang-switcher" role="group" aria-label="Langue">
+        <button class="lang-btn active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      </div>
+      <a href="devis.html" class="btn btn-primary btn-primary-nav btn-sm" data-i18n="nav.cta">Organisons votre voyage ! 🌴</a>
+    </div>
+  </div>
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Menu principal">
+    <div class="nav-overlay-inner">
+      <button class="menu-close" aria-label="Fermer le menu">
+        <i class="ti ti-x"></i>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+        <li>
+          <button class="nav-menu-btn" type="button" aria-expanded="false">
+            <span data-i18n="nav.concept">Le Concept</span> <i class="ti ti-chevron-down nav-chevron" aria-hidden="true"></i>
+          </button>
+          <ul class="nav-submenu">
+            <li><a href="concept.html" data-i18n="nav.concept_sub">Concept</a></li>
+            <li><a href="prestations.html" data-i18n="nav.prestations">Nos prestations</a></li>
+          </ul>
+        </li>
+        <li><a href="realisations.html" data-i18n="nav.realisations">Nos Réalisations</a></li>
+        <li><a href="about.html" data-i18n="nav.about">À propos de nous</a></li>
+        <li><a href="galerie.html" data-i18n="nav.gallery">Galerie</a></li>
+        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      </ul>
+
+      <div class="nav-overlay-langs lang-switcher" role="group" aria-label="Langue">
+        <button class="lang-btn active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="page-hero about-hero page-hero--about">
+  <video class="page-hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/galerie-hero-poster.jpg">
+    <source src="assets/videos/galerie-hero.mp4" type="video/mp4">
+  </video>
+  <div class="page-hero-content">
+    <span class="page-hero-eyebrow">Qui sommes-nous</span>
+    <h1 class="page-hero-title fade-up" data-i18n="about.hero_title">Qui se cache derrière The Lagoon Travel ?</h1>
+    <p class="page-hero-subtitle fade-up" data-i18n="about.hero_subtitle">Deux frères, une île, une même passion du voyage.</p>
+  </div>
+</section>
+
+<!-- ══ SECTION 1 — NOTRE HISTOIRE ══ -->
+<section class="section histoire-about" id="notre-histoire">
+  <div class="container">
+    <div class="histoire-about-grid">
+
+      <div class="histoire-about-content fade-up">
+        <span class="section-eyebrow" data-i18n="about.histoire_eyebrow">NOTRE HISTOIRE</span>
+        <h2 class="section-title" data-i18n="about.histoire_title">The Lagoon Travel, une histoire de famille</h2>
+        <div class="divider divider--left"></div>
+        <p class="histoire-about-text" data-i18n="about.histoire_text">
+          The Lagoon Travel c'est avant tout l'histoire de 2 frères passionnés de voyages et de découverte du monde. Depuis notre plus jeune âge, nous avons eu la chance de voyager dans de nombreux pays. Après une vingtaine de pays visités, chacun d'eux a été une expérience unique et l'occasion de grandir toujours un peu plus, de nous connecter aux gens et de créer des souvenirs uniques gravés à jamais. Venant d'une famille d'entrepreneurs et avec une passion pour le voyage, c'est tout naturellement que nous avons choisi d'en faire notre métier.
+        </p>
+        <span class="histoire-about-signature">Maël &amp; Tom</span>
+      </div>
+
+      <div class="histoire-about-media fade-up">
+        <span class="ham-shape" aria-hidden="true"></span>
+        <svg class="ham-link" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M52,72 C 59,66 57,60 63,53" />
+        </svg>
+
+        <figure class="ham-photo ham-photo--mael">
+          <img src="assets/images/mael.webp" alt="Maël, cofondateur de The Lagoon Travel" loading="lazy">
+          <figcaption class="ham-name">Maël</figcaption>
+        </figure>
+
+        <figure class="ham-photo ham-photo--tom">
+          <img src="assets/images/tom.jpg" alt="Tom, cofondateur de The Lagoon Travel" loading="lazy">
+          <figcaption class="ham-name">Tom</figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 2 — NOS RACINES ══ -->
+<section class="section about-roots">
+  <div class="container">
+    <div class="about-roots-grid">
+
+      <div class="about-roots-media fade-left">
+        <img src="assets/images/racines.jpg" alt="L'île Maurice, terre d'origine" class="about-roots-photo-main" loading="lazy">
+      </div>
+
+      <div class="about-roots-text fade-right">
+        <span class="section-eyebrow" data-i18n="about.racines_eyebrow">NOS RACINES</span>
+        <h2 class="about-roots-title" data-i18n="about.racines_title">L'île Maurice, une histoire <em>d'appartenance</em></h2>
+        <div class="divider divider--left"></div>
+        <p data-i18n="about.racines_text1">
+          Nés à l'île Maurice d'un père mauricien et d'une mère française, nous avons vécu la majorité de notre vie en France. Mais notre amour pour l'île Maurice a toujours été présent. <em>Loin des yeux, près du cœur</em> comme on dit.
+        </p>
+        <p data-i18n="about.racines_text2">
+          Un jour nous avons décidé de retourner sur notre île natale et cela fait depuis 2 ans et demi que nous y vivons à plein temps. C'est là qu'est née notre idée de vous partager notre amour et notre connaissance de l'île au travers la confection d'itinéraires sur mesure et pensés selon vos envies.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 2bis — LA PERLE DE L'OCÉAN INDIEN ══ -->
+<section class="section about-perle">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="section-eyebrow" data-i18n="about.perle_eyebrow">Notre île</span>
+      <h2 class="about-perle-title" data-i18n="about.perle_title">&laquo;&nbsp;La perle de l'océan Indien&nbsp;&raquo;</h2>
+      <div class="divider"></div>
+    </div>
+
+    <p class="about-perle-text fade-up" data-i18n="about.perle_text1">
+      Il existe une Maurice qu'on ne trouve sur aucune carte. Des plages accessibles seulement à marée basse, des criques que même certains locaux ignorent, des points de vue où le soleil se couche différemment chaque soir. Des adresses qu'on ne partage qu'avec ceux qui nous font confiance.
+    </p>
+    <p class="about-perle-text fade-up" data-i18n="about.perle_text2">
+      Voilà ce qu'on aime vous faire découvrir : une île qui se mérite, qui se raconte différemment selon qui la vit. Pas un itinéraire figé, mais une invitation à ralentir et à regarder Maurice autrement.
+    </p>
+
+    <div class="about-photo-strip">
+      <figure class="about-polaroid fade-up">
+        <img src="assets/images/chamarel.jpg" alt="La terre des sept couleurs de Chamarel" loading="lazy">
+        <figcaption data-i18n="about.polaroid1">Terre des 7 couleurs</figcaption>
+      </figure>
+      <figure class="about-polaroid fade-up">
+        <img src="assets/images/rencontres-marines.jpg" alt="Rencontre avec les dauphins dans le lagon" loading="lazy">
+        <figcaption data-i18n="about.polaroid2">Rencontres marines</figcaption>
+      </figure>
+      <figure class="about-polaroid fade-up">
+        <img src="assets/images/nuit-catamaran.webp" alt="Nuit en catamaran sous les étoiles" loading="lazy">
+        <figcaption data-i18n="about.polaroid3">Nuits en catamaran</figcaption>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ SECTION 3 — NOS VALEURS ══ -->
+<section class="section about-valeurs">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="section-eyebrow" data-i18n="about.valeurs_eyebrow">NOS VALEURS</span>
+      <h2 class="section-title" data-i18n="about.valeurs_title">Ce en quoi on croit</h2>
+      <div class="divider"></div>
+    </div>
+
+    <p class="about-valeurs-intro fade-up" data-i18n="about.valeurs_quote">
+      &laquo;&nbsp;Un voyage réussi ne se résume pas à une destination. Il doit refléter vos envies, votre rythme et votre manière de découvrir le monde.&nbsp;&raquo;
+    </p>
+
+    <div class="about-values-grid">
+
+      <div class="about-value-card fade-up">
+        <span class="about-value-num" aria-hidden="true">01</span>
+        <div class="about-value-icon"><i class="ti ti-shield-check"></i></div>
+        <h3 class="about-value-title" data-i18n="about.val1_title">Confiance</h3>
+        <p class="about-value-text" data-i18n="about.val1_text">Vous pouvez compter sur des recommandations sérieusement sélectionnées et testées à l'avance.</p>
+      </div>
+
+      <div class="about-value-card fade-up">
+        <span class="about-value-num" aria-hidden="true">02</span>
+        <div class="about-value-icon"><i class="ti ti-flower"></i></div>
+        <h3 class="about-value-title" data-i18n="about.val2_title">Authenticité</h3>
+        <p class="about-value-text" data-i18n="about.val2_text">Notre objectif est de vous faire découvrir des lieux, des rencontres et des expériences qui rendent chaque voyage unique.</p>
+      </div>
+
+      <div class="about-value-card fade-up">
+        <span class="about-value-num" aria-hidden="true">03</span>
+        <div class="about-value-icon"><i class="ti ti-ear"></i></div>
+        <h3 class="about-value-title" data-i18n="about.val3_title">Écoute</h3>
+        <p class="about-value-text" data-i18n="about.val3_text">Un voyage réussi commence toujours par une bonne écoute. C'est pourquoi on prend le temps de comprendre vos envies, vos contraintes et votre budget.</p>
+      </div>
+
+      <div class="about-value-card fade-up">
+        <span class="about-value-num" aria-hidden="true">04</span>
+        <div class="about-value-icon"><i class="ti ti-sparkles"></i></div>
+        <h3 class="about-value-title" data-i18n="about.val4_title">Personnalisation</h3>
+        <p class="about-value-text" data-i18n="about.val4_text">Aucun voyage n'est standardisé, chaque séjour est unique et conçu rien que pour vous.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-bg" aria-hidden="true"></div>
+  <div class="cta-frame" aria-hidden="true"></div>
+  <div class="container cta-inner">
+    <span class="section-eyebrow section-eyebrow--light fade-up" data-i18n="about.cta_eyebrow">Votre aventure commence ici</span>
+    <h2 class="cta-title fade-up" data-i18n="about.cta_title">
+      Envie de découvrir l'île à votre tour ?
+    </h2>
+    <p class="cta-text fade-up" data-i18n="about.cta_text">
+      Parlez-nous de votre projet, on s'occupe du reste — devis gratuit sous 24h.
+    </p>
+    <div class="cta-actions fade-up">
+      <a href="devis.html" class="btn btn-white btn-lg" data-i18n="about.cta_btn">Discutons de votre voyage →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="assets/images/Logo_The_lagoon.png" alt="The Lagoon Travel" class="footer-logo-img" loading="lazy">
+        </div>
+        <p data-i18n="footer.desc">Votre organisateur de voyage sur mesure à l'île Maurice. Des expériences uniques, pensées pour vous.</p>
+      </div>
+      <div class="footer-links fade-up">
+        <h4 class="footer-col-title" data-i18n="footer.links_title">Liens rapides</h4>
+        <ul class="footer-links-list">
+          <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+          <li><a href="concept.html" data-i18n="nav.concept">Le Concept</a></li>
+          <li><a href="prestations.html" data-i18n="nav.prestations">Nos prestations</a></li>
+          <li><a href="realisations.html" data-i18n="nav.realisations">Nos Réalisations</a></li>
+          <li><a href="about.html" data-i18n="nav.about">À propos de nous</a></li>
+          <li><a href="galerie.html" data-i18n="nav.gallery">Galerie</a></li>
+          <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact fade-up">
+        <h4 class="footer-col-title" data-i18n="footer.contact_title">Nous trouver</h4>
+        <div class="footer-contact-item"><i class="ti ti-brand-whatsapp"></i><a href="https://wa.me/23054829958" target="_blank" rel="noopener">WhatsApp : +230 5482 9958</a></div>
+        <div class="footer-contact-item"><i class="ti ti-mail"></i><a href="mailto:thelagoon.mu@gmail.com">thelagoon.mu@gmail.com</a></div>
+        <div class="footer-contact-item"><i class="ti ti-brand-instagram"></i><a href="https://www.instagram.com/thelagoon.travel.mu" target="_blank" rel="noopener">@thelagoon.travel.mu</a></div>
+        <div class="footer-contact-item"><i class="ti ti-brand-facebook"></i><a href="https://facebook.com/thelagoontravel" target="_blank" rel="noopener">The Lagoon Travel</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-i18n="footer.copyright">© 2026 The Lagoon Travel · Tous droits réservés</span>
+    <span>·</span>
+    <span><span data-i18n="footer.heart">Île Maurice</span></span>
+  </div>
+</footer>
+
+<script defer src="assets/js/i18n.js"></script>
+<script defer src="assets/js/main.js"></script></body>
+</html>

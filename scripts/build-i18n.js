@@ -64,6 +64,18 @@ function readJson(file) {
   }
 }
 
+/**
+ * Notation simple des textes modifiables : *mot* devient <em>mot</em>.
+ * Seules les paires d'astérisques sur un même texte (hors balises) sont converties ; le contenu ne doit
+ * ni commencer ni finir par une espace, ni contenir d'astérisque. Une astérisque seule ou non appariée reste littérale.
+ */
+function convertEmphasis(value) {
+  return value
+    .split(/(<[^<>]*>)/)
+    .map(part => (part.startsWith('<') ? part : part.replace(/\*([^*\s<>](?:[^*<>]*[^*\s<>])?)\*/g, '<em>$1</em>')))
+    .join('');
+}
+
 /** Contrôle le HTML d'une valeur. Renvoie la suite des balises (pour comparer FR/EN). */
 function checkHtml(where, value, allowedTags) {
   const tagRe = /<(\/?)([a-zA-Z][a-zA-Z0-9-]*)([^<>]*?)(\/?)>/g;
@@ -125,7 +137,7 @@ function checkAttributes(where, tag, attrs) {
 
 /* ── Lecture et contrôle des sources ─────────────────── */
 
-function checkEntries(file, dict, allowedTags) {
+function checkEntries(file, dict, allowedTags, emphasis) {
   const where0 = relPath(file);
   if (dict === null || typeof dict !== 'object' || Array.isArray(dict)) {
     fail(where0, 'doit contenir un objet { clé: texte }');
@@ -137,7 +149,9 @@ function checkEntries(file, dict, allowedTags) {
     if (!/^[a-z0-9_.]+$/.test(key)) fail(where, 'nom de clé invalide (minuscules, chiffres, « _ » et « . » seulement)');
     if (typeof value !== 'string') { fail(where, 'la valeur doit être un texte'); continue; }
     if (!value.trim()) { fail(where, 'texte vide'); continue; }
-    out[key] = { value, tags: checkHtml(where, value, allowedTags).join(',') };
+    const html = emphasis ? convertEmphasis(value) : value;
+    if (emphasis && /\*/.test(html.replace(/<[^<>]*>/g, ''))) warnings.push(`  - ${where} : astérisque isolée ou non appariée, conservée telle quelle dans le texte`);
+    out[key] = { value: html, tags: checkHtml(where, html, allowedTags).join(',') };
   }
   return out;
 }
@@ -168,7 +182,7 @@ function loadSources() {
     const per = {};
     for (const lang of LANGS) {
       if (!(lang in data)) { fail(relPath(file), `section « ${lang} » manquante`); continue; }
-      per[lang] = checkEntries(file, data[lang], TAGS_EDITABLE);
+      per[lang] = checkEntries(file, data[lang], TAGS_EDITABLE, true);
       for (const [k, e] of Object.entries(per[lang])) add(lang, k, e, file);
     }
     if (per.fr && per.en) compareLangs(file, per.fr, per.en);

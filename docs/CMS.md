@@ -33,6 +33,8 @@ Le script s'arrête avec un message en français, sans rien modifier, si :
 **HTML autorisé dans les textes** : `<strong>`, `<em>`, `<br>`, `<span class="plus-sign">`, et
 `<strong style="white-space: nowrap;">` (ce style exactement). `<li>` n'est accepté que dans `content/fixed/`.
 Tout le reste est refusé : autres balises, autres attributs, `on*`, `javascript:`.
+
+**Italique/couleur : la notation `*mot*`.** Dans les champs modifiables, entourez un mot ou une expression d'astérisques (`L'île Maurice, une histoire *d'appartenance*`) : le site l'affiche comme `<em>…</em>`. Mêmes règles dans les deux langues. Le texte entre astérisques ne doit pas commencer ni finir par une espace ni contenir d'astérisque ; une astérisque seule ou non appariée reste affichée telle quelle. Cette notation ne s'applique qu'aux textes de `content/editable/` (pas à `content/fixed/`) et ne fonctionne pas autour d'une autre balise (`*mot <strong>…</strong>*`). Les balises `<em>` écrites à la main restent acceptées.
 Pour changer la liste, modifier les constantes en haut de `scripts/build-i18n.js`.
 
 ## Ajouter un texte modifiable

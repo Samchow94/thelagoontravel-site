@@ -2,7 +2,6 @@
   "fr": {
     "carnet.label_spots": "Vos adresses coup de cœur et spots secrets",
     "carnet.eyebrow": "Votre carnet de voyage",
-    "carnet.label_more": "<span class=\"plus-sign\">+</span> plein d'autres surprises",
     "carnet.label_tips": "Nos conseils et astuces",
     "carnet.label_stays": "Vos hébergements et transferts",
     "carnet.cta": "Découvrez nos formules →",
@@ -15,7 +14,6 @@
   "en": {
     "carnet.label_spots": "Our favourite spots & hidden gems",
     "carnet.eyebrow": "Your travel journal",
-    "carnet.label_more": "<span class=\"plus-sign\">+</span> plenty more surprises",
     "carnet.label_tips": "Our tips & tricks",
     "carnet.label_stays": "Your stays & transfers",
     "carnet.cta": "Discover our packages →",

@@ -65,15 +65,19 @@ function readJson(file) {
 }
 
 /**
- * Notation simple des textes modifiables : *mot* devient <em>mot</em>.
+ * Notation simple des textes modifiables : **mot** devient <strong>mot</strong>, *mot* devient <em>mot</em>
+ * et un retour à la ligne devient <br>.
  * Seules les paires d'astérisques sur un même texte (hors balises) sont converties ; le contenu ne doit
  * ni commencer ni finir par une espace, ni contenir d'astérisque. Une astérisque seule ou non appariée reste littérale.
+ * Le gras est traité avant l'italique, pour que **mot** ne devienne pas *<em>mot</em>*.
  */
 function convertEmphasis(value) {
-  return value
+  const pair = (text, stars, tag) => text
     .split(/(<[^<>]*>)/)
-    .map(part => (part.startsWith('<') ? part : part.replace(/\*([^*\s<>](?:[^*<>]*[^*\s<>])?)\*/g, '<em>$1</em>')))
+    .map(part => (part.startsWith('<') ? part : part.replace(
+      new RegExp(`\\*{${stars}}([^*\\s<>](?:[^*<>]*[^*\\s<>])?)\\*{${stars}}`, 'g'), `<${tag}>$1</${tag}>`)))
     .join('');
+  return pair(pair(value, 2, 'strong'), 1, 'em').replace(/\r?\n/g, '<br>');
 }
 
 /** Contrôle le HTML d'une valeur. Renvoie la suite des balises (pour comparer FR/EN). */

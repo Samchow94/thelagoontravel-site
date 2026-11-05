@@ -1,6 +1,6 @@
 {
   "fr": {
-    "concept.chatgpt_us_msg2": "En soi, vous aurez les mêmes itinéraires, les mêmes activités et les mêmes conseils que tout le monde. Mais un <strong>itinéraire personnalisé</strong> selon vos envies, des <strong>adresses confidentielles</strong> que seuls les locaux connaissent, des conseils d'un expert basé sur sa connaissance de la destination, des prestataires et des retours de voyageurs. Sans compter une <strong>assistance et un accompagnement</strong> du début à la fin, ça ChatGPT ne peut pas vous le donner.",
+    "concept.chatgpt_us_msg2": "En soi, vous aurez les mêmes itinéraires, les mêmes activités et les mêmes conseils que tout le monde. Mais un **itinéraire personnalisé** selon vos envies, des **adresses confidentielles** que seuls les locaux connaissent, des conseils d'un expert basé sur sa connaissance de la destination, des prestataires et des retours de voyageurs. Sans compter une **assistance et un accompagnement** du début à la fin, ça ChatGPT ne peut pas vous le donner.",
     "concept.problem_lead": "Entre les heures passées à comparer les prix des activités et des vols, la recherche des meilleurs logements et la planification de l'itinéraire, cela peut vite devenir stressant et se transformer en un véritable casse-tête.",
     "concept.problem_eyebrow": "On connaît le problème",
     "concept.chatgpt_vs_label": "Ce que ChatGPT ne saura jamais&nbsp;:",
@@ -42,12 +42,12 @@
     "concept.vs2_text": "Ceux qui viennent d'ouvrir, testés et approuvés par nos soins — pas encore sur Google.",
     "concept.vs1_text": "Les plages où il n'y a jamais personne, les points de vue que même certains guides ignorent — on connaît tous les recoins de l'île.",
     "concept.chatgpt_user_msg": "Mais pourquoi faire appel à vous alors que je peux tout faire sur ChatGPT ?",
-    "concept.chatgpt_us_msg1": "Et vous avez sans doute raison&nbsp;! ChatGPT est un très bon outil pour donner des conseils. Mais vous oubliez un point essentiel : il ne vous apportera jamais le <strong>jugement humain</strong> ni la <strong>personnalisation réelle</strong> qu'on peut vous offrir.",
+    "concept.chatgpt_us_msg1": "Et vous avez sans doute raison&nbsp;! ChatGPT est un très bon outil pour donner des conseils. Mais vous oubliez un point essentiel : il ne vous apportera jamais le **jugement humain** ni la **personnalisation réelle** qu'on peut vous offrir.",
     "concept.role_lead": "C'est là que le rôle d'un travel planner prend tout son sens. En faisant appel à nous, vous déléguez entièrement l'organisation de votre voyage à des experts qui connaissent l'île *comme leur poche* — de la première idée jusqu'au carnet de voyage final.",
     "concept.benefits_quote": "&laquo;&nbsp;Nous vous faisons gagner du temps, évitons les erreurs et vous construisons un voyage pensé pour vous. La valeur n'est pas l'information, c'est la sélection, la personnalisation et l'organisation.&nbsp;&raquo;"
   },
   "en": {
-    "concept.chatgpt_us_msg2": "Essentially, you'd get the same itineraries, the same activities and the same advice as everyone else. But a <strong>personalized itinerary</strong> built around your wishes, <strong>hidden gems</strong> only locals know about, advice from an expert based on real knowledge of the destination, the providers, and feedback from actual travelers. Not to mention <strong>support and guidance</strong> from start to finish — ChatGPT simply can't give you that.",
+    "concept.chatgpt_us_msg2": "Essentially, you'd get the same itineraries, the same activities and the same advice as everyone else. But a **personalized itinerary** built around your wishes, **hidden gems** only locals know about, advice from an expert based on real knowledge of the destination, the providers, and feedback from actual travelers. Not to mention **support and guidance** from start to finish — ChatGPT simply can't give you that.",
     "concept.problem_lead": "Between the hours spent comparing activity and flight prices, searching for the best accommodation, and planning the itinerary, it can quickly become stressful and turn into a real headache.",
     "concept.problem_eyebrow": "We know the problem",
     "concept.chatgpt_vs_label": "What ChatGPT will never know&nbsp;:",
@@ -89,7 +89,7 @@
     "concept.vs2_text": "The ones that just opened, tested and approved by us — not on Google yet.",
     "concept.vs1_text": "The beaches where there's never anyone, the viewpoints even some guidebooks miss — we know every corner of the island.",
     "concept.chatgpt_user_msg": "But why would I use you when I can do everything on ChatGPT?",
-    "concept.chatgpt_us_msg1": "And you're probably right&nbsp;! ChatGPT is a great tool for advice. But you're forgetting one essential point: it will never give you the <strong>human judgment</strong> or the <strong>real personalization</strong> that we can offer.",
+    "concept.chatgpt_us_msg1": "And you're probably right&nbsp;! ChatGPT is a great tool for advice. But you're forgetting one essential point: it will never give you the **human judgment** or the **real personalization** that we can offer.",
     "concept.role_lead": "This is where the role of a travel planner really makes sense. By calling on us, you fully hand over the organization of your trip to experts who know the island *inside out* — from the very first idea all the way to your final travel journal.",
     "concept.benefits_quote": "&laquo;&nbsp;We save you time, help you avoid mistakes, and build a trip designed just for you. The value isn't the information &mdash; it's the selection, the personalization, and the organization.&nbsp;&raquo;"
   }

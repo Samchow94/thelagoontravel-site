@@ -49,7 +49,6 @@ collections:
         fields:
           - { label: "Accueil › Activités › Sur-titre", name: "activities.eyebrow", widget: string, i18n: true }
           - { label: "Accueil › Activités › Titre", name: "activities.title", widget: string, i18n: true }
-          - { label: "Accueil › Activités › Sous-titre", name: "activities.subtitle", widget: text, i18n: true, hint: "Ne supprimez pas les balises `<strong>` (mise en forme du texte) : gardez-les dans les deux langues." }
           - { label: "Accueil › Activités › Texte « et plus encore »", name: "activities.more", widget: string, i18n: true }
           - { label: "Accueil › Activités › Onglet « Mer & Nautisme »", name: "activities.tab_sea", widget: string, i18n: true }
           - { label: "Accueil › Activités › Onglet « Nature & Randonnée »", name: "activities.tab_nature", widget: string, i18n: true }
@@ -137,7 +136,7 @@ collections:
           - { label: "Accueil › Comment ça marche › Schéma › Étape 5 › Légende", name: "ccm.svg.s5.sub", widget: string, i18n: true, hint: "Les codes comme `&nbsp;` (espace insécable) ou `&laquo;` (guillemet) sont normaux : ne les supprimez pas." }
           - { label: "Accueil › Comment ça marche › Schéma › Étape 6 › Titre", name: "ccm.svg.s6.title", widget: string, i18n: true }
           - { label: "Accueil › Comment ça marche › Schéma › Étape 6 › Légende", name: "ccm.svg.s6.sub", widget: string, i18n: true }
-          - { label: "Accueil › Comment ça marche › Titre", name: "ccm.title", widget: string, i18n: true, hint: "Entourez un mot de *astérisques* pour le mettre en italique/couleur." }
+          - { label: "Accueil › Comment ça marche › Titre", name: "ccm.title", widget: string, i18n: true, hint: "Italique/couleur : *mot*. Gras : **mot**." }
           - { label: "Accueil › Comment ça marche › Sur-titre", name: "ccm.eyebrow", widget: string, i18n: true }
       - name: "accueil-carnet"
         label: "Accueil › Carnet de voyage"
@@ -154,7 +153,6 @@ collections:
           - { label: "Accueil › Carnet de voyage › Libellé › Activités", name: "carnet.label_activities", widget: string, i18n: true }
           - { label: "Accueil › Carnet de voyage › Libellé › Carte interactive", name: "carnet.label_map", widget: string, i18n: true }
           - { label: "Accueil › Carnet de voyage › Libellé › Conseils et astuces", name: "carnet.label_tips", widget: string, i18n: true }
-          - { label: "Accueil › Carnet de voyage › Libellé › Et plus encore", name: "carnet.label_more", widget: string, i18n: true, hint: "Ne supprimez pas les balises `<span>` (mise en forme du texte) : gardez-les dans les deux langues." }
       - name: "accueil-reassurance"
         label: "Accueil › Pourquoi nous choisir"
         file: "content/editable/accueil-reassurance.json"
@@ -177,9 +175,9 @@ collections:
         i18n: true
         fields:
           - { label: "Accueil › Notre histoire › Sur-titre", name: "who.eyebrow", widget: string, i18n: true }
-          - { label: "Accueil › Présentation de l'île Maurice › Titre", name: "home.histoire_title", widget: string, i18n: true, hint: "Entourez un mot de *astérisques* pour le mettre en italique/couleur." }
+          - { label: "Accueil › Présentation de l'île Maurice › Titre", name: "home.histoire_title", widget: string, i18n: true, hint: "Italique/couleur : *mot*. Gras : **mot**." }
           - { label: "Accueil › Présentation de l'île Maurice › Texte", name: "home.histoire_text", widget: text, i18n: true }
-          - { label: "Accueil › Présentation de l'île Maurice › Badge", name: "home.histoire_badge", widget: string, i18n: true, hint: "Ne supprimez pas les balises `<br>`, `<strong>` (mise en forme du texte) : gardez-les dans les deux langues." }
+          - { label: "Accueil › Présentation de l'île Maurice › Badge", name: "home.histoire_badge", widget: text, i18n: true, hint: "Gras : **mot**. Pour passer à la ligne, appuyez sur Entrée." }
           - { label: "Accueil › Présentation de l'île Maurice › Bouton", name: "home.histoire_cta", widget: string, i18n: true }
       - name: "accueil-cta"
         label: "Accueil › Appel à l'action"
@@ -209,8 +207,8 @@ collections:
           - { label: "À propos › Notre histoire › Titre", name: "about.histoire_title", widget: string, i18n: true }
           - { label: "À propos › Notre histoire › Texte", name: "about.histoire_text", widget: text, i18n: true }
           - { label: "À propos › Nos racines › Sur-titre", name: "about.racines_eyebrow", widget: string, i18n: true }
-          - { label: "À propos › Nos racines › Titre", name: "about.racines_title", widget: string, i18n: true, hint: "Entourez un mot de *astérisques* pour le mettre en italique/couleur." }
-          - { label: "À propos › Nos racines › Texte 1", name: "about.racines_text1", widget: text, i18n: true, hint: "Entourez un mot de *astérisques* pour le mettre en italique/couleur." }
+          - { label: "À propos › Nos racines › Titre", name: "about.racines_title", widget: string, i18n: true, hint: "Italique/couleur : *mot*. Gras : **mot**." }
+          - { label: "À propos › Nos racines › Texte 1", name: "about.racines_text1", widget: text, i18n: true, hint: "Italique/couleur : *mot*. Gras : **mot**." }
           - { label: "À propos › Nos racines › Texte 2", name: "about.racines_text2", widget: text, i18n: true }
           - { label: "À propos › Perle de l'océan Indien › Sur-titre", name: "about.perle_eyebrow", widget: string, i18n: true }
           - { label: "À propos › Perle de l'océan Indien › Titre", name: "about.perle_title", widget: string, i18n: true, hint: "Les codes comme `&nbsp;` (espace insécable) ou `&laquo;` (guillemet) sont normaux : ne les supprimez pas." }
@@ -251,7 +249,7 @@ collections:
           - { label: "Concept › Bannière › Titre", name: "concept.hero_title", widget: string, i18n: true }
           - { label: "Concept › Bannière › Sous-titre", name: "concept.hero_subtitle", widget: string, i18n: true }
           - { label: "Concept › Le problème › Sur-titre", name: "concept.problem_eyebrow", widget: string, i18n: true }
-          - { label: "Concept › Le problème › Titre", name: "concept.problem_title", widget: string, i18n: true, hint: "Entourez un mot de *astérisques* pour le mettre en italique/couleur." }
+          - { label: "Concept › Le problème › Titre", name: "concept.problem_title", widget: string, i18n: true, hint: "Italique/couleur : *mot*. Gras : **mot**." }
           - { label: "Concept › Le problème › Chapeau", name: "concept.problem_lead", widget: text, i18n: true }
           - { label: "Concept › Difficulté 1 › Titre", name: "concept.chaos1_title", widget: string, i18n: true }
           - { label: "Concept › Difficulté 1 › Texte", name: "concept.chaos1_text", widget: string, i18n: true }
@@ -267,15 +265,15 @@ collections:
           - { label: "Concept › Carnet de voyage › Bouton", name: "concept.carnet_btn", widget: string, i18n: true }
           - { label: "Concept › Notre rôle › Sur-titre", name: "concept.role_eyebrow", widget: string, i18n: true }
           - { label: "Concept › Notre rôle › Titre", name: "concept.role_title", widget: string, i18n: true }
-          - { label: "Concept › Notre rôle › Chapeau", name: "concept.role_lead", widget: text, i18n: true, hint: "Entourez un mot de *astérisques* pour le mettre en italique/couleur." }
+          - { label: "Concept › Notre rôle › Chapeau", name: "concept.role_lead", widget: text, i18n: true, hint: "Italique/couleur : *mot*. Gras : **mot**." }
           - { label: "Concept › Notre rôle › Chiffre 1", name: "concept.role_stat1", widget: string, i18n: true }
           - { label: "Concept › Notre rôle › Chiffre 2", name: "concept.role_stat2", widget: string, i18n: true }
           - { label: "Concept › Notre rôle › Chiffre 3", name: "concept.role_stat3", widget: string, i18n: true }
           - { label: "Concept › Comparaison ChatGPT › Sur-titre", name: "concept.chatgpt_eyebrow", widget: string, i18n: true }
           - { label: "Concept › Comparaison ChatGPT › Titre", name: "concept.chatgpt_title", widget: string, i18n: true, hint: "Les codes comme `&nbsp;` (espace insécable) ou `&laquo;` (guillemet) sont normaux : ne les supprimez pas." }
           - { label: "Concept › Comparaison ChatGPT › Question du voyageur › Message", name: "concept.chatgpt_user_msg", widget: string, i18n: true }
-          - { label: "Concept › Comparaison ChatGPT › Notre réponse › Message 1", name: "concept.chatgpt_us_msg1", widget: text, i18n: true, hint: "Ne supprimez pas les balises `<strong>` (mise en forme du texte) : gardez-les dans les deux langues. Les codes comme `&nbsp;` (espace insécable) ou `&laquo;` (guillemet) sont normaux : ne les supprimez pas." }
-          - { label: "Concept › Comparaison ChatGPT › Notre réponse › Message 2", name: "concept.chatgpt_us_msg2", widget: text, i18n: true, hint: "Ne supprimez pas les balises `<strong>` (mise en forme du texte) : gardez-les dans les deux langues." }
+          - { label: "Concept › Comparaison ChatGPT › Notre réponse › Message 1", name: "concept.chatgpt_us_msg1", widget: text, i18n: true, hint: "Gras : **mot**. Les codes comme `&nbsp;` (espace insécable) ou `&laquo;` (guillemet) sont normaux : ne les supprimez pas." }
+          - { label: "Concept › Comparaison ChatGPT › Notre réponse › Message 2", name: "concept.chatgpt_us_msg2", widget: text, i18n: true, hint: "Gras : **mot**." }
           - { label: "Concept › Comparaison ChatGPT › Comparaison › Libellé", name: "concept.chatgpt_vs_label", widget: string, i18n: true, hint: "Les codes comme `&nbsp;` (espace insécable) ou `&laquo;` (guillemet) sont normaux : ne les supprimez pas." }
           - { label: "Concept › Comparaison 1 › Titre", name: "concept.vs1_title", widget: string, i18n: true }
           - { label: "Concept › Comparaison 1 › Texte", name: "concept.vs1_text", widget: text, i18n: true }
@@ -315,7 +313,6 @@ collections:
           - { label: "Prestations › Carnet de voyage › Libellé › Activités", name: "prestations.carnet_label_activities", widget: string, i18n: true }
           - { label: "Prestations › Carnet de voyage › Libellé › Carte interactive", name: "prestations.carnet_label_map", widget: string, i18n: true }
           - { label: "Prestations › Carnet de voyage › Libellé › Conseils et astuces", name: "prestations.carnet_label_tips", widget: string, i18n: true }
-          - { label: "Prestations › Carnet de voyage › Libellé › Et plus encore", name: "prestations.carnet_label_more", widget: string, i18n: true, hint: "Ne supprimez pas les balises `<span>` (mise en forme du texte) : gardez-les dans les deux langues." }
           - { label: "Prestations › Services › Sur-titre", name: "prestations.services_eyebrow", widget: string, i18n: true }
           - { label: "Prestations › Services › Titre", name: "prestations.services_title", widget: string, i18n: true }
           - { label: "Prestations › Autre service 1 › Titre", name: "prestations.service1_title", widget: string, i18n: true }
@@ -375,7 +372,7 @@ collections:
           - { label: "FAQ › Bannière › Sur-titre", name: "faq.hero_eyebrow", widget: string, i18n: true }
           - { label: "FAQ › Bannière › Titre", name: "faq.hero_title", widget: string, i18n: true }
           - { label: "FAQ › Bannière › Sous-titre", name: "faq.hero_subtitle", widget: string, i18n: true }
-          - { label: "FAQ › Colonne latérale › Titre", name: "faq.side_title", widget: string, i18n: true, hint: "Entourez un mot de *astérisques* pour le mettre en italique/couleur." }
+          - { label: "FAQ › Colonne latérale › Titre", name: "faq.side_title", widget: string, i18n: true, hint: "Italique/couleur : *mot*. Gras : **mot**." }
           - { label: "FAQ › Colonne latérale › Texte", name: "faq.side_text", widget: text, i18n: true }
           - { label: "FAQ › Question 1 › Question", name: "faq.acc1_q", widget: string, i18n: true }
           - { label: "FAQ › Question 1 › Réponse", name: "faq.acc1_a", widget: text, i18n: true }

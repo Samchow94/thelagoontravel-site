@@ -35,6 +35,12 @@ Le script s'arrête avec un message en français, sans rien modifier, si :
 Tout le reste est refusé : autres balises, autres attributs, `on*`, `javascript:`.
 
 **Italique/couleur : la notation `*mot*`.** Dans les champs modifiables, entourez un mot ou une expression d'astérisques (`L'île Maurice, une histoire *d'appartenance*`) : le site l'affiche comme `<em>…</em>`. Mêmes règles dans les deux langues. Le texte entre astérisques ne doit pas commencer ni finir par une espace ni contenir d'astérisque ; une astérisque seule ou non appariée reste affichée telle quelle. Cette notation ne s'applique qu'aux textes de `content/editable/` (pas à `content/fixed/`) et ne fonctionne pas autour d'une autre balise (`*mot <strong>…</strong>*`). Les balises `<em>` écrites à la main restent acceptées.
+
+**Gras : la notation `**mot**`** (affiché `<strong>mot</strong>`), avec les mêmes règles que `*mot*`. Le gras est traité avant l'italique ; les deux ne peuvent pas être imbriqués (`**a *b* c**` reste littéral pour le gras). Un astérisque isolé ou non apparié est conservé tel quel et le build affiche un avertissement.
+
+**Retour à la ligne** : dans les champs modifiables, un retour à la ligne saisi dans Decap (touche Entrée, champ multiligne) devient `<br>` sur le site. Il n'est utilisé aujourd'hui que par `home.histoire_badge`.
+
+**Champs structurels** : `activities.subtitle` (`<strong style="white-space: nowrap;">`), `carnet.label_more` et `prestations.carnet_label_more` (`<span class="plus-sign">`) ne sont plus modifiables dans le CMS : ils sont dans `content/fixed/fr.json` et `content/fixed/en.json` (à modifier à la main, balises comprises). Les notations `*mot*`, `**mot**` et le retour à la ligne ne s'appliquent pas à `content/fixed/`.
 Pour changer la liste, modifier les constantes en haut de `scripts/build-i18n.js`.
 
 ## Ajouter un texte modifiable

@@ -111,5 +111,8 @@
   "contact.err_message": "Merci d'écrire votre message.",
   "devis.err_triptype": "Sélectionnez au moins un type de voyage.",
   "devis.err_dates": "La date de départ doit être après l'arrivée.",
-  "devis.err_activities": "Sélectionnez au moins une activité."
+  "devis.err_activities": "Sélectionnez au moins une activité.",
+  "activities.subtitle": "Que ce soit pour les logements, les activités ou le transport, on ne travaille qu'avec quelques partenaires soigneusement sélectionnés. <strong style=\"white-space: nowrap;\">Notre philosophie : qualité avant la quantité !</strong>",
+  "carnet.label_more": "<span class=\"plus-sign\">+</span> plein d'autres surprises",
+  "prestations.carnet_label_more": "<span class=\"plus-sign\">+</span> plein d'autres surprises"
 }
